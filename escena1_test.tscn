@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bea0p4g13n838"]
+
+[ext_resource type="Texture2D" uid="uid://diaeyo0yo6qtf" path="res://piso.jpg" id="1_e6u4r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bckj3"]
+albedo_texture = ExtResource("1_e6u4r")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1kfy"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23web"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy48i"]
+albedo_color = Color(0, 1, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 8.16488, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 121.396, 0)
+
+[node name="Plano" type="CSGBox3D" parent="."]
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_bckj3")
+
+[node name="caja1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0828, 2.0188, 13.3189)
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_w1kfy")
+
+[node name="caja2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0188, 23.4254)
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_23web")
+
+[node name="caja3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5474, 2.0188, 13.3189)
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_vy48i")
