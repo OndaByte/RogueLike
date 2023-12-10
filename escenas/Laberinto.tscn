@@ -1,0 +1,119 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmi7b0swrfdad"]
+
+[ext_resource type="Material" uid="uid://jcfce8kpc7n8" path="res://materiales/piso_material.tres" id="1_0kxea"]
+[ext_resource type="Material" uid="uid://d3xrfibgfvwjc" path="res://materiales/pared_material.tres" id="2_62175"]
+[ext_resource type="PackedScene" uid="uid://yrv3v07ay4yo" path="res://escenas/jugador/Jugador.tscn" id="3_6lkno"]
+
+[node name="escena" type="Node3D"]
+
+[node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.776981, 0.98716, -1.54996)
+
+[node name="mapa" type="Node3D" parent="."]
+
+[node name="Piso" type="CSGBox3D" parent="mapa"]
+material_override = ExtResource("1_0kxea")
+use_collision = true
+size = Vector3(20, 1, 20)
+
+[node name="Pared1" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.74125, 1.51714, 0)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 20)
+
+[node name="Pared2" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.51714, -9.73692)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 19)
+
+[node name="Pared3" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.74098, 1.51714, 0)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 20)
+
+[node name="Pared4" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.51714, 9.7397)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 19)
+
+[node name="Pared5" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 1.51714, -0.00725427)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 10)
+
+[node name="Pared6" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 1.51714, -7.00942)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 5)
+
+[node name="Pared7" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 1.51714, -6.00725)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 10)
+
+[node name="Pared8" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 1.51714, 2.69058)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 5)
+
+[node name="Pared9" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.0457, 1.51714, 5.47613)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 5)
+
+[node name="Pared10" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 1.51714, -0.00941968)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 5)
+
+[node name="Pared11" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.9558, 1.51714, -2.71891)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 5)
+
+[node name="Pared12" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 1.51714, 4.55151)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 10)
+
+[node name="Pared13" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.51227, 1.51714, -0.170257)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 5)
+
+[node name="Pared14" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.80039, 1.51714, -2.7868)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 0.5)
+
+[node name="Pared15" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5017, 1.51714, -2.7868)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 0.5)
+
+[node name="Pared16" type="CSGBox3D" parent="mapa"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.980529, 1.51714, 7.17012)
+material_override = ExtResource("2_62175")
+use_collision = true
+size = Vector3(0.5, 2, 5)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.5, -0.75, 0.433013, -7.57103e-08, 0.5, 0.866026, -0.866025, 0.433013, -0.25, 3.32434, 6.73583, -3.20666)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.183013, 0.683013, 0, -0.965926, 0.258819, 0.707107, -0.183013, -0.683013, 0, 4.38703, 0)
