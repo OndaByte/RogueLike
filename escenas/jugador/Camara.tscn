@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkb0ffdkccej8"]
+
+[ext_resource type="Script" path="res://src/jugador/CamaraControl.gd" id="1_ldg3j"]
+
+[node name="Camara" type="Node3D"]
+script = ExtResource("1_ldg3j")
+
+[node name="Horizontal" type="Node3D" parent="."]
+
+[node name="Vertical" type="Node3D" parent="Horizontal"]
+
+[node name="Camera3D" type="Camera3D" parent="Horizontal/Vertical"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
