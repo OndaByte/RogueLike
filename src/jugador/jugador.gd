@@ -39,13 +39,13 @@ func _physics_process(delta):
 	var direccion = Vector3(_mov_dir.x, 0, _mov_dir.y) #Calculo direccion de inputs
 	_mov_rot = lerp(_mov_rot,deg_to_rad(camara._rot_h),vel_cam_seguimiento*delta) #Roto en base a la camara
 	direccion = direccion.rotated(Vector3.UP,_mov_rot)
-	print(direccion)
 	_vel = _vel.lerp(direccion*mov_vel,mov_acc*delta) #Calculo velocidad, esta es gradual no instantanea
 	if _salto_enfriamiento > 0:
 		_salto_enfriamiento -= delta
 	if not is_on_floor():
 		_y_vel -= gravity * delta
 	else:
+		_y_vel = 0
 		_cont_saltos = 0
 		_salto_enfriamiento = 0
 	if _salto && _cont_saltos < cant_saltos && _salto_enfriamiento <=0:
