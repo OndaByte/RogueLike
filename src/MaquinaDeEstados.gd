@@ -2,30 +2,31 @@ extends Node
 class_name MaquinaDeEstados
 
 @export var estado_inicial:= NodePath()
-@onready var _estado: Estado = get_node(estado_inicial)
+@onready var estado_actual: Estado = get_node(estado_inicial)
 
-func init(objetivo_control):
+func init(objetivo_control, objetivo_animaciones):
 	for nodo in get_children():
 		nodo.objetivo = objetivo_control
+		nodo.animaciones = objetivo_animaciones
 
 func transicion(proximo_estado: Estado):
-	if _estado:
-		_estado.salir()
-	_estado = proximo_estado
+	if estado_actual:
+		estado_actual.salir()
+	estado_actual = proximo_estado
 	proximo_estado.entrar()
 
-func _input(event):
-	var proximo_estado = _estado.input(event)
+func input(event):
+	var proximo_estado = estado_actual.input(event)
 	if proximo_estado:
 		transicion(proximo_estado)
 
-func _process(delta):
-	var proximo_estado = _estado.process(delta)
+func process(delta):
+	var proximo_estado = estado_actual.process(delta)
 	if proximo_estado:
 		transicion(proximo_estado)
 
-func _physics_process(delta):
-	var proximo_estado = _estado.physics_process(delta)
+func physics_process(delta):
+	var proximo_estado = estado_actual.physics_process(delta)
 	if proximo_estado:
 		transicion(proximo_estado)
 

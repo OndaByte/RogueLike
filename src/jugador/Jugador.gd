@@ -5,23 +5,32 @@ class_name Jugador
 @onready var colision = $colision
 @onready var modelo = $modelo
 @onready var camara = $CamRot/Camara
-@onready var maquna_estados_movimiento = $Movimiento
+@onready var maquina_estados_movimiento = $Movimiento
 @onready var animations = $modelo/player/AnimationPlayer
-
+@onready var controles = $Controles
 
 @export var altura_salto: float = 5
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-@export var cantidad_saltos: int = 20
+@export var cantidad_saltos: int = 2
 @export var enfriamiento_salto: float = 0.01
 @export var velocidad_maxima: float = 20
 @export var velocidad_maxima_caminar: float = 4
 @export var aceleracion_caminar: float = 3
 @export var aceleracion_giro: float = 5
 @export var velocidad_giro_camara: float = 8
+@export var tiempo_impulso: float = 0.2
+@export var velocidad_impulso: float = 40.0
+@export var enfriamiento_impulso: float = 0.5
+
+var contador_saltos: int = 0
+var _enfriamiento_salto: float = 0
+var _enfriamiento_impulso: float = 0
 
 func _ready():
-	maquna_estados_movimiento.init(self)
+	maquina_estados_movimiento.init(self, animations)
 
 func _physics_process(delta):
-	maquna_estados_movimiento._physics_process(delta)
+	maquina_estados_movimiento.physics_process(delta)
+	_enfriamiento_impulso -= delta 
+	_enfriamiento_salto -= delta
 	move_and_slide()

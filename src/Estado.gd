@@ -3,9 +3,10 @@ class_name Estado
 
 var animacion: String
 var objetivo: Node
+var animaciones: AnimationMixer
 
 func entrar():
-	objetivo.animations.play(animacion)
+	animaciones.play(animacion)
 	pass
 
 func salir():

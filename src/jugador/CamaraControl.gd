@@ -17,25 +17,16 @@ class_name CamaraControl
 
 var _rot_h: float = 0
 var _rot_v: float = 0
-var _capturando: bool = true
 var _distancia: float = 0
 
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_distancia = camara.transform.origin.z
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		_capturando != _capturando
-		if _capturando:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	
-	if _capturando:
+	if controles.capturando:
 		if event is InputEventMouseMotion:
-			_rot_h -= event.relative.x * sensibilidad
-			_rot_v -= event.relative.y * sensibilidad
+			_rot_h -= controles.mouse_posicion.x * sensibilidad
+			_rot_v -= controles.mouse_posicion.y * sensibilidad
 		if Input.is_action_just_pressed("cam_zoom"):
 			_distancia = clamp(_distancia-salto_zoom,distancia_minima,distancia_maxima)
 		if Input.is_action_just_pressed("cam_unzoom"):
