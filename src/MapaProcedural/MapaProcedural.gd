@@ -5,46 +5,62 @@ extends Node3D
 
 @export var start : bool = false : set = set_start
 func set_start(val:bool)->void:
-	generate()
+	set_border_size()
 
-@export var border_size : int = 20 : set = set_border_size
-func set_border_size(val : int)->void:
-	border_size = val
+@export var z_max : int = 40
+@export var y_max : int = 40
+@export var x_max : int = 40
+
+@export var can_habitaciones: int = 7
+
+var z_actual: int = 0
+var y_actual: int = 0
+var x_actual: int = 0
+
+
+func set_border_size()->void:
+	z_actual=randi() % z_max
+	y_actual=randi() % y_max
+	x_actual=randi() % x_max
 	if Engine.is_editor_hint():
 		visualize_border()
 
+func generar_habitaciones():
+	var i: int = 0
+	var z_aux: int = 0
+	var y_aux: int = 0
+	var x_aux: int = 0
+	while(can_habitaciones>i):
+		
+		while (grid_map.get_cell_item(Vector3(x_aux,y_aux,z_aux)) != grid_map.INVALID_CELL_ITEM):
+			z_aux = randi() % z_actual
+			y_aux = randi() % y_actual
+			x_aux = randi() % x_actual
+		i+=1
+		grid_map.set_cell_item(Vector3i(x_aux,y_aux,z_aux),0)
+
 func visualize_border():
 	grid_map.clear()
-	for i in range(-1, border_size+1):
-		#BASE
-		grid_map.set_cell_item(Vector3i(i,0,-1),1)
-		grid_map.set_cell_item(Vector3i(i,0,border_size),1)
-		grid_map.set_cell_item(Vector3i(border_size,0,i),1)
-		grid_map.set_cell_item(Vector3i(-1,0,i),0)
-		#TECHO
-		grid_map.set_cell_item(Vector3i(i,border_size,-1),1)
-		grid_map.set_cell_item(Vector3i(i,border_size,border_size),1)
-		grid_map.set_cell_item(Vector3i(border_size,border_size,i),1)
-		grid_map.set_cell_item(Vector3i(-1,border_size,i),0)
-		#LADO 1 
-		grid_map.set_cell_item(Vector3i(i,border_size,-1),1)
-		grid_map.set_cell_item(Vector3i(i,border_size,border_size),1)
-		grid_map.set_cell_item(Vector3i(border_size,border_size,i),1)
-		grid_map.set_cell_item(Vector3i(-1,border_size,i),0)
-				#LADO 2 
-		grid_map.set_cell_item(Vector3i(i,i,-1),1)
-		grid_map.set_cell_item(Vector3i(i,i,border_size),1)
-		grid_map.set_cell_item(Vector3i(border_size,i,i),1)
-		grid_map.set_cell_item(Vector3i(-1,i,i),0)
-				#3
-		grid_map.set_cell_item(Vector3i(i,i,-1),1)
-		grid_map.set_cell_item(Vector3i(i,i,border_size),1)
-		grid_map.set_cell_item(Vector3i(border_size,i,i),1)
-		grid_map.set_cell_item(Vector3i(-1,i,border_size),0)
-				#4
-		grid_map.set_cell_item(Vector3i(i,border_size,-1),1)
-		grid_map.set_cell_item(Vector3i(i,border_size,border_size),1)
-		grid_map.set_cell_item(Vector3i(border_size,border_size,i),1)
-		grid_map.set_cell_item(Vector3i(-1,border_size,i),0)
+	for i in range(0,z_actual):
+		grid_map.set_cell_item(Vector3i(0,0,i),1)
+		grid_map.set_cell_item(Vector3i(x_actual,0,i),1)
+		grid_map.set_cell_item(Vector3i(0,y_actual,i),1)
+		grid_map.set_cell_item(Vector3i(x_actual,y_actual,i),1)
+	
+	for i in range(0,x_actual):
+		grid_map.set_cell_item(Vector3i(i,0,0),1)
+		grid_map.set_cell_item(Vector3i(i,0,z_actual),1)
+		grid_map.set_cell_item(Vector3i(i,y_actual,0),1)
+		grid_map.set_cell_item(Vector3i(i,y_actual,z_actual),1)
+		
+	for i in range(0,y_actual):
+		grid_map.set_cell_item(Vector3i(0,i,0),1)
+		grid_map.set_cell_item(Vector3i(0,i,z_actual),1)
+		grid_map.set_cell_item(Vector3i(x_actual,i,0),1)
+		grid_map.set_cell_item(Vector3i(x_actual,i,z_actual),1)
+		
+	generar_habitaciones()
+	
 func generate():
 	print("generating ...")
+	
