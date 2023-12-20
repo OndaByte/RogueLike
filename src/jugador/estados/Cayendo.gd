@@ -19,7 +19,7 @@ func physics_process(delta) -> Estado:
 			return estado_caminando
 		return estado_detenido
 	
-	if objetivo.controles.movimiento == Vector2.ZERO:
+	#if objetivo.controles.movimiento == Vector2.ZERO:
 	
 	if objetivo.controles.salto:
 		if(objetivo.contador_saltos < objetivo.cantidad_saltos && objetivo._enfriamiento_salto <=0):
