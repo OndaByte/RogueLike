@@ -8,10 +8,11 @@
 [node name="escena" type="Node3D"]
 
 [node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.776981, 1.09967, -2.58283)
+transform = Transform3D(-0.0581591, -0.946102, 0.318604, -0.998278, 0.0526664, -0.0258352, 0.00766299, -0.319558, -0.947536, -4.80119, -6.84704, 2.92713)
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707107, 0.183013, 0.683013, 0, -0.965926, 0.258819, 0.707107, -0.183013, -0.683013, 0, 4.38703, 0)
+transform = Transform3D(0.184163, 0.844912, -0.502204, -0.724157, -0.228842, -0.65056, -0.66459, 0.483483, 0.569705, -7.04328, -5.96499, -0.576652)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
