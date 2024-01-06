@@ -19,9 +19,6 @@ func physics_process(delta):
 	if objetivo.controles.salto:
 		return estado_saltando
 	
-	if !objetivo.is_on_floor():
-		return estado_cayendo
-	
 	mov_dir = objetivo.controles.movimiento
 	if mov_dir == Vector2.ZERO:
 		return estado_detenido
@@ -35,8 +32,11 @@ func physics_process(delta):
 	objetivo.modelo.rotation.y = rotacion
 	objetivo.velocity = vel
 	
-	if objetivo.controles.impulso && objetivo._enfriamiento_impulso <= 0:
+	if objetivo.controles.impulso && (objetivo._enfriamiento_impulso <= 0 || objetivo.contador_impulsos < objetivo.cantidad_impulsos):
 		estado_impulso.direccion_dash = direccion
 		return estado_impulso
 	
+	if !objetivo.is_on_floor():
+		return estado_cayendo
+
 	return null

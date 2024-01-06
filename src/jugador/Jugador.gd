@@ -21,8 +21,10 @@ class_name Jugador
 @export var tiempo_impulso: float = 0.2
 @export var velocidad_impulso: float = 40.0
 @export var enfriamiento_impulso: float = 0.5
+@export var cantidad_impulsos: int = 2
 
 var contador_saltos: int = 0
+var contador_impulsos: int = 0
 var _enfriamiento_salto: float = 0
 var _enfriamiento_impulso: float = 0
 

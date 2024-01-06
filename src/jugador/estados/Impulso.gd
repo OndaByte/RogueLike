@@ -13,7 +13,10 @@ func entrar():
 	animacion = "aim_walk"
 	tiempo_transcurrido = 0.0
 	objetivo.velocity.y = 0
-	objetivo._enfriamiento_impulso = objetivo.enfriamiento_impulso
+	if objetivo._enfriamiento_impulso <= 0:
+		objetivo.contador_impulsos = 0
+		objetivo._enfriamiento_impulso = objetivo.enfriamiento_impulso
+	objetivo.contador_impulsos += 1
 
 func physics_process(delta):
 	tiempo_transcurrido += delta
