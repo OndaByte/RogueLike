@@ -15,7 +15,7 @@ func entrar():
 	objetivo.velocity.y = 0
 	if objetivo._enfriamiento_impulso <= 0:
 		objetivo.contador_impulsos = 0
-		objetivo._enfriamiento_impulso = objetivo.enfriamiento_impulso
+	objetivo._enfriamiento_impulso = objetivo.enfriamiento_impulso
 	objetivo.contador_impulsos += 1
 
 func physics_process(delta):
