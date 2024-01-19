@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1wgy2ia5up76"]
+
+[ext_resource type="Script" path="res://src/utilidades/Proyectil.gd" id="1_wdxfj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60xtv"]
+albedo_color = Color(0.470588, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8xijo"]
+material = SubResource("StandardMaterial3D_60xtv")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kvuwf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_by4oo"]
+radius = 0.6
+
+[node name="Proyectil" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_wdxfj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_8xijo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kvuwf")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_by4oo")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
