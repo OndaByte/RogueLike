@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RogueLike"
-run/main_scene="res://escenas/MapaProcedural.tscn"
+run/main_scene="res://escenas/Laberinto.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

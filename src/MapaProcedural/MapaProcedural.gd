@@ -1,12 +1,10 @@
 @tool
-extends Node3D
-
-@onready var grid_map : GridMap = $GridMap
-
+extends Node3D  
+@onready var grid_map : GridMap = $GridMap #va a ejecutar cuando este ready
 @export var start : bool = false : set = set_start
+
 func set_start(val:bool)->void:
 	set_border_size()
-
 @export var z_max : int = 40
 @export var y_max : int = 40
 @export var x_max : int = 40
@@ -16,6 +14,12 @@ func set_start(val:bool)->void:
 var z_actual: int = 0
 var y_actual: int = 0
 var x_actual: int = 0
+
+# Step 1 / Place rooms 
+# Step 2 / Create dlunay tetrahedralization
+# Step 3 / Find Minimum Spanning Tree
+# Step 4 / Chose Random edges
+# Step 5 / Pathfind hallways
 
 
 func set_border_size()->void:
