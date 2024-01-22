@@ -4,17 +4,23 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60xtv"]
 albedo_color = Color(0.470588, 0, 1, 1)
+emission_enabled = true
+emission = Color(0.470588, 0, 1, 1)
+emission_energy_multiplier = 20.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_8xijo"]
 material = SubResource("StandardMaterial3D_60xtv")
+radius = 0.2
+height = 0.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kvuwf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_by4oo"]
-radius = 0.6
+radius = 0.3
 
 [node name="Proyectil" type="RigidBody3D"]
-gravity_scale = 0.0
+collision_layer = 0
+gravity_scale = 0.3
 script = ExtResource("1_wdxfj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -24,6 +30,7 @@ mesh = SubResource("SphereMesh_8xijo")
 shape = SubResource("SphereShape3D_kvuwf")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_by4oo")

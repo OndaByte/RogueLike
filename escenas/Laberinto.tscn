@@ -15,7 +15,9 @@ agent_radius = 0.0
 [node name="escena" type="Node3D"]
 
 [node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653513, 6.27386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653513, 6.65285)
+enfriamiento_impulso = 2.0
+cantidad_impulsos = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.184163, 0.844912, -0.502204, -0.724157, -0.228842, -0.65056, -0.66459, 0.483483, 0.569705, -7.04328, -5.96499, -0.576652)
@@ -31,7 +33,7 @@ navigation_mesh = SubResource("NavigationMesh_fxfkn")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 use_collision = true
-collision_mask = 2
+collision_mask = 3
 
 [node name="Piso" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 material_override = ExtResource("1_0kxea")
@@ -153,4 +155,5 @@ material = ExtResource("2_62175")
 
 [node name="aracnido_1" parent="." node_paths=PackedStringArray("objetivo") instance=ExtResource("5_o7urm")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.932359, 0)
+collision_mask = 3
 objetivo = NodePath("../Jugador")

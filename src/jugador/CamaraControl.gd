@@ -9,18 +9,26 @@ class_name CamaraControl
 @export var salto_zoom: float = 0.3
 @export var distancia_minima: float = 1.5
 @export var distancia_maxima: float = 4
+@export var distancia_inicial: float = 3
 
+@onready var clip = $Horizontal/Vertical/Clip
+@onready var mira = $Horizontal/Vertical/Camera3D/Mira
 @onready var horizontal = $Horizontal
 @onready var vertical = $Horizontal/Vertical
 @onready var camara = $Horizontal/Vertical/Camera3D
 @onready var controles = $"../../Controles"
+@onready var punta = $Horizontal/Vertical/Arma/punta
 
+var proyectil = preload("res://escenas/proyectiles/Proyectil.tscn")
 var _rot_h: float = 0
 var _rot_v: float = 0
-var _distancia: float = 0
+var _distancia: float = distancia_inicial
+var disparando: bool = false
 
 func _ready():
-	_distancia = camara.transform.origin.z
+	if _distancia < distancia_minima:
+		_distancia = distancia_minima
+	clip.target_position.z = _distancia
 
 func _input(event):
 	if controles.capturando:
@@ -31,9 +39,25 @@ func _input(event):
 			_distancia = clamp(_distancia-salto_zoom,distancia_minima,distancia_maxima)
 		if Input.is_action_just_pressed("cam_unzoom"):
 			_distancia = clamp(_distancia+salto_zoom,distancia_minima,distancia_maxima)
+		if Input.is_action_just_pressed("disparar"):
+			disparando = true
+		if Input.is_action_just_released("disparar"):
+			disparando = false
 	_rot_v = clamp(_rot_v,min_theta,max_theta)
 
 func _physics_process(delta):
 	horizontal.rotation_degrees.y = lerp(horizontal.rotation_degrees.y,_rot_h,aceleracion_rotacion*delta)
 	vertical.rotation_degrees.x = lerp(vertical.rotation_degrees.x,_rot_v,aceleracion_rotacion*delta)
-	camara.transform.origin.z = lerp(camara.transform.origin.z,_distancia,velocidad_zoom*delta)
+	
+	if clip.is_colliding():
+		var distancia_clip = clip.global_transform.origin.distance_to(clip.get_collision_point())
+		camara.transform.origin.z = lerp(camara.transform.origin.z,distancia_clip,velocidad_zoom*delta)
+	else:
+		camara.transform.origin.z = lerp(camara.transform.origin.z,_distancia,velocidad_zoom*delta)
+	clip.target_position.z = camara.transform.origin.z
+	
+	if disparando && mira.is_colliding():
+		var b = proyectil.instantiate()
+		punta.add_child(b)
+		b.look_at(mira.get_collision_point(), Vector3.UP)
+		b.disparar = true

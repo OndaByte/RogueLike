@@ -5,7 +5,7 @@ extends Estado
 @export var estado_detenido: Estado
 @export var estado_cayendo: Estado
 
-var tiempo_transcurrido: float = 0.0
+var tiempo_transcurrido: float = 0.0 ##Usado para calcular la duracion del impulso/dash
 var direccion_dash: Vector3 = Vector3.ZERO
 
 func entrar():
