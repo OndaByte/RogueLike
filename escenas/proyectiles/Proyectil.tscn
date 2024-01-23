@@ -6,7 +6,7 @@
 albedo_color = Color(0.470588, 0, 1, 1)
 emission_enabled = true
 emission = Color(0.470588, 0, 1, 1)
-emission_energy_multiplier = 20.0
+emission_energy_multiplier = 5.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_8xijo"]
 material = SubResource("StandardMaterial3D_60xtv")
@@ -34,5 +34,8 @@ collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_by4oo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.568627, 0.117647, 0.980392, 1)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmi7b0swrfdad"]
+[gd_scene load_steps=8 format=3 uid="uid://cmi7b0swrfdad"]
 
 [ext_resource type="Material" uid="uid://jcfce8kpc7n8" path="res://materiales/piso_material.tres" id="1_0kxea"]
 [ext_resource type="Material" uid="uid://d3xrfibgfvwjc" path="res://materiales/pared_material.tres" id="2_62175"]
@@ -12,15 +12,14 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 agent_height = 0.3
 agent_radius = 0.0
 
+[sub_resource type="Environment" id="Environment_oph4h"]
+
 [node name="escena" type="Node3D"]
 
 [node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653513, 6.65285)
 enfriamiento_impulso = 2.0
 cantidad_impulsos = 2
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.184163, 0.844912, -0.502204, -0.724157, -0.228842, -0.65056, -0.66459, 0.483483, 0.569705, -7.04328, -5.96499, -0.576652)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -157,3 +156,6 @@ material = ExtResource("2_62175")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.932359, 0)
 collision_mask = 3
 objetivo = NodePath("../Jugador")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oph4h")
