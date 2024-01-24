@@ -17,11 +17,3 @@ target_position = Vector3(0, 0, -1000)
 
 [node name="Clip" type="RayCast3D" parent="Horizontal/Vertical"]
 target_position = Vector3(0, 0, 1)
-
-[node name="Arma" type="CSGBox3D" parent="Horizontal/Vertical"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
-layers = 2
-size = Vector3(0.2, 0.2, 0.2)
-
-[node name="punta" type="Node3D" parent="Horizontal/Vertical/Arma"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.163324)

@@ -17,9 +17,8 @@ class_name CamaraControl
 @onready var vertical = $Horizontal/Vertical
 @onready var camara = $Horizontal/Vertical/Camera3D
 @onready var controles = $"../../Controles"
-@onready var punta = $Horizontal/Vertical/Arma/punta
 
-var proyectil = preload("res://escenas/proyectiles/Proyectil.tscn")
+
 var _rot_h: float = 0
 var _rot_v: float = 0
 var _distancia: float = distancia_inicial
@@ -39,10 +38,6 @@ func _input(event):
 			_distancia = clamp(_distancia-salto_zoom,distancia_minima,distancia_maxima)
 		if Input.is_action_just_pressed("cam_unzoom"):
 			_distancia = clamp(_distancia+salto_zoom,distancia_minima,distancia_maxima)
-		if Input.is_action_just_pressed("disparar"):
-			disparando = true
-		if Input.is_action_just_released("disparar"):
-			disparando = false
 	_rot_v = clamp(_rot_v,min_theta,max_theta)
 
 func _physics_process(delta):
@@ -55,9 +50,3 @@ func _physics_process(delta):
 	else:
 		camara.transform.origin.z = lerp(camara.transform.origin.z,_distancia,velocidad_zoom*delta)
 	clip.target_position.z = camara.transform.origin.z
-	
-	if disparando && mira.is_colliding():
-		var b = proyectil.instantiate()
-		punta.add_child(b)
-		b.look_at(mira.get_collision_point(), Vector3.UP)
-		b.disparar = true

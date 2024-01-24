@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://8dxs1n1gomrp"]
+
+[node name="Arma" type="CSGBox3D"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Boca_arma" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1549)
