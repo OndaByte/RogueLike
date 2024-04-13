@@ -14,9 +14,10 @@ radius = 0.2
 height = 0.4
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kvuwf"]
+radius = 0.3
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_by4oo"]
-radius = 0.3
+radius = 0.4
 
 [node name="Proyectil" type="RigidBody3D"]
 collision_layer = 0

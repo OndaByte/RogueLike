@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmnikjkgv3d16"
-path.s3tc="res://.godot/imported/DunCell_TexturesCom_Pavement_CobblestoneStreet5_2x2_1K_normals.png-e8ae816fe729ef57971689f375cbe11f.s3tc.ctex"
+path.s3tc="res://.godot/imported/DunCell_TexturesCom_Pavement_CobblestoneStreet5_2x2_1K_normals.png-d3caea2502bd6181ffed4a83ed064cb1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://imports/DunCell_TexturesCom_Pavement_CobblestoneStreet5_2x2_1K_normals.png"
-dest_files=["res://.godot/imported/DunCell_TexturesCom_Pavement_CobblestoneStreet5_2x2_1K_normals.png-e8ae816fe729ef57971689f375cbe11f.s3tc.ctex"]
+source_file="res://src/MapaProcedural/imports/DunCell_TexturesCom_Pavement_CobblestoneStreet5_2x2_1K_normals.png"
+dest_files=["res://.godot/imported/DunCell_TexturesCom_Pavement_CobblestoneStreet5_2x2_1K_normals.png-d3caea2502bd6181ffed4a83ed064cb1.s3tc.ctex"]
 
 [params]
 

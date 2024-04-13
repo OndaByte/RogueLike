@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pypg3e77tne3"
-path.s3tc="res://.godot/imported/DunCell_TexturesCom_Cement_1x1_512_albedo.png-5369a378fc677ed962b07eba259543bd.s3tc.ctex"
+path.s3tc="res://.godot/imported/DunCell_TexturesCom_Cement_1x1_512_albedo.png-274b5a0a542b17eb791cdc064a9fcc7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://imports/DunCell_TexturesCom_Cement_1x1_512_albedo.png"
-dest_files=["res://.godot/imported/DunCell_TexturesCom_Cement_1x1_512_albedo.png-5369a378fc677ed962b07eba259543bd.s3tc.ctex"]
+source_file="res://src/MapaProcedural/imports/DunCell_TexturesCom_Cement_1x1_512_albedo.png"
+dest_files=["res://.godot/imported/DunCell_TexturesCom_Cement_1x1_512_albedo.png-274b5a0a542b17eb791cdc064a9fcc7e.s3tc.ctex"]
 
 [params]
 

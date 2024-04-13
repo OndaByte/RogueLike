@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dlc7eo0th32e0"
-path="res://.godot/imported/DunCell.glb-28e551ad791b30bfe57aa4da5081e2e0.scn"
+path="res://.godot/imported/DunCell.glb-69b2b57b6ac8e83396d09e0473e23088.scn"
 
 [deps]
 
-source_file="res://imports/DunCell.glb"
-dest_files=["res://.godot/imported/DunCell.glb-28e551ad791b30bfe57aa4da5081e2e0.scn"]
+source_file="res://src/MapaProcedural/imports/DunCell.glb"
+dest_files=["res://.godot/imported/DunCell.glb-69b2b57b6ac8e83396d09e0473e23088.scn"]
 
 [params]
 

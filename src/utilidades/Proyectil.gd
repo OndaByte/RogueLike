@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var daño: float = 10
+@export var daño: int = 10
 @export var velocidad: float = 1000
 @export var tiempo_vuelo: float = 10
 
@@ -23,4 +23,6 @@ func _physics_process(delta):
 
 
 func _on_area_3d_body_entered(body):
-	queue_free() #Libero de memoria el proyectil al impactar
+	if body.is_in_group("Enemigos"):
+		body.golpe(daño)
+		queue_free() #Libero de memoria el proyectil al impactar

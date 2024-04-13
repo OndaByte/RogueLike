@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pvcdfq7dtuvs"
-path.s3tc="res://.godot/imported/DunCell_TexturesCom_MixedMedievalBricks_1K_normals.png-10fee65f56009a25a9843fe029f602e0.s3tc.ctex"
+path.s3tc="res://.godot/imported/DunCell_TexturesCom_MixedMedievalBricks_1K_normals.png-03b8df09d6a806629640b88c07a5c1c9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://imports/DunCell_TexturesCom_MixedMedievalBricks_1K_normals.png"
-dest_files=["res://.godot/imported/DunCell_TexturesCom_MixedMedievalBricks_1K_normals.png-10fee65f56009a25a9843fe029f602e0.s3tc.ctex"]
+source_file="res://src/MapaProcedural/imports/DunCell_TexturesCom_MixedMedievalBricks_1K_normals.png"
+dest_files=["res://.godot/imported/DunCell_TexturesCom_MixedMedievalBricks_1K_normals.png-03b8df09d6a806629640b88c07a5c1c9.s3tc.ctex"]
 
 [params]
 

@@ -134,7 +134,8 @@ bind/33/pose = Transform3D(0.882053, -0.216228, 0.418601, -0.428744, -2.01165e-0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wi1sv"]
 
-[node name="aracnido_1" type="CharacterBody3D"]
+[node name="aracnido_1" type="CharacterBody3D" groups=["Enemigos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.134693)
 script = ExtResource("1_wyqie")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -457,7 +458,7 @@ mesh = SubResource("ArrayMesh_kfdb6")
 skin = SubResource("Skin_8611i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.6, -5.24536e-08, -2.29282e-15, 0, -2.62268e-08, 0.6, -5.24536e-08, -0.6, -2.62268e-08, -1.98858e-08, 0, 0.266563)
+transform = Transform3D(0.8, -5.24536e-08, -3.05709e-15, 0, -2.62268e-08, 0.8, -6.99381e-08, -0.6, -3.49691e-08, -1.98858e-08, 0, 0.266563)
 shape = SubResource("CapsuleShape3D_wi1sv")
 
 [node name="Objetivo" type="Node3D" parent="."]

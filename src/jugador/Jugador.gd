@@ -29,8 +29,6 @@ var contador_impulsos: int = 0
 var _enfriamiento_salto: float = 0
 var _enfriamiento_impulso: float = 0
 
-var proyectil = preload("res://escenas/proyectiles/Proyectil.tscn")
-
 func _ready():
 	maquina_estados_movimiento.init(self, animations)
 
@@ -40,11 +38,8 @@ func _physics_process(delta):
 	_enfriamiento_salto -= delta
 	
 	if controles.disparando:
-		var b = proyectil.instantiate()
-		arma.add_child(b)
 		if camara.mira.is_colliding():
-			b.look_at(camara.mira.get_collision_point(), Vector3.UP)
+			arma.disparar(camara.mira.get_collision_point())
 		else:
-			b.look_at(camara.mira.to_global(camara.mira.target_position), Vector3.UP)
-		b.disparar = true
+			arma.disparar(camara.mira.to_global(camara.mira.target_position))
 	move_and_slide()
