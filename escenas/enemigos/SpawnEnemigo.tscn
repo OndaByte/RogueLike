@@ -7,6 +7,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [node name="SpawnEnemigo" type="Node3D"]
 script = ExtResource("1_e2hyp")
+vida_maxima = 300.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 material = SubResource("StandardMaterial3D_6w41s")

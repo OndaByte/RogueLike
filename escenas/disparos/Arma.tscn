@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://8dxs1n1gomrp"]
+
+[ext_resource type="Script" path="res://src/disparos/Arma.gd" id="1_ytca3"]
+
+[node name="Arma" type="Node3D"]
+script = ExtResource("1_ytca3")
+
+[node name="Arma" type="CSGBox3D" parent="."]
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Boca_arma" type="Node3D" parent="Arma"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1549)

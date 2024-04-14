@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmi7b0swrfdad"]
+[gd_scene load_steps=7 format=3 uid="uid://cmi7b0swrfdad"]
 
 [ext_resource type="Material" uid="uid://jcfce8kpc7n8" path="res://materiales/piso_material.tres" id="1_0kxea"]
 [ext_resource type="Material" uid="uid://d3xrfibgfvwjc" path="res://materiales/pared_material.tres" id="2_62175"]
 [ext_resource type="PackedScene" uid="uid://yrv3v07ay4yo" path="res://escenas/jugador/Jugador.tscn" id="3_6lkno"]
-[ext_resource type="PackedScene" uid="uid://cbsgbvhr7xwpq" path="res://escenas/enemigos/Enemigo_1.tscn" id="5_o7urm"]
 [ext_resource type="PackedScene" uid="uid://cgq4g87est8hg" path="res://escenas/enemigos/SpawnEnemigo.tscn" id="6_d1erq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_fxfkn"]
@@ -153,12 +152,6 @@ material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
 material = ExtResource("2_62175")
-
-[node name="aracnido_1" parent="." node_paths=PackedStringArray("objetivo") instance=ExtResource("5_o7urm")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.93236, 0)
-collision_mask = 3
-objetivo = NodePath("../Jugador")
-vida = 20
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oph4h")
