@@ -10,7 +10,7 @@ var pisando: bool = false
 
 func _process(delta):
 	var pos_obj = paso_obj.global_position
-	if !pisando && !pata_adyacente.pisando && abs(global_position.distance_to(pos_obj)) > paso_dist:
+	if !pisando && !pata_adyacente.pisando && abs(global_position.distance_to(pos_obj)) >= paso_dist:
 		var mitad = (global_position + pos_obj)/2
 		var t = get_tree().create_tween()
 		pisando = true

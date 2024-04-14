@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmi7b0swrfdad"]
+[gd_scene load_steps=8 format=3 uid="uid://cmi7b0swrfdad"]
 
 [ext_resource type="Material" uid="uid://jcfce8kpc7n8" path="res://materiales/piso_material.tres" id="1_0kxea"]
 [ext_resource type="Material" uid="uid://d3xrfibgfvwjc" path="res://materiales/pared_material.tres" id="2_62175"]
 [ext_resource type="PackedScene" uid="uid://yrv3v07ay4yo" path="res://escenas/jugador/Jugador.tscn" id="3_6lkno"]
-[ext_resource type="PackedScene" uid="uid://4wfa20x5om6j" path="res://ui/debug.tscn" id="4_7vd3a"]
 [ext_resource type="PackedScene" uid="uid://cbsgbvhr7xwpq" path="res://escenas/enemigos/Enemigo_1.tscn" id="5_o7urm"]
 [ext_resource type="PackedScene" uid="uid://cgq4g87est8hg" path="res://escenas/enemigos/SpawnEnemigo.tscn" id="6_d1erq"]
 
@@ -17,14 +16,16 @@ agent_radius = 0.0
 
 [node name="escena" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
 [node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653513, 6.65285)
-enfriamiento_impulso = 2.0
+tiempo_impulso = 0.1
+velocidad_impulso = 80.0
+enfriamiento_impulso = 0.3
 cantidad_impulsos = 2
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Debug" parent="CanvasLayer" instance=ExtResource("4_7vd3a")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9353, 0, -4.30954)
@@ -154,7 +155,7 @@ size = Vector3(0.5, 2, 5)
 material = ExtResource("2_62175")
 
 [node name="aracnido_1" parent="." node_paths=PackedStringArray("objetivo") instance=ExtResource("5_o7urm")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.932359, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.93236, 0)
 collision_mask = 3
 objetivo = NodePath("../Jugador")
 vida = 20
@@ -163,5 +164,5 @@ vida = 20
 environment = SubResource("Environment_oph4h")
 
 [node name="SpawnEnemigo" parent="." node_paths=PackedStringArray("objetivo") instance=ExtResource("6_d1erq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69873, -9.68327)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.69873, -9.68327)
 objetivo = NodePath("../Jugador")

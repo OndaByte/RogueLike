@@ -10,6 +10,7 @@ var tiempo_aire = 0
 
 func _ready():
 	set_as_top_level(true)
+	disparar = true
 
 func _physics_process(delta):
 	if disparar:

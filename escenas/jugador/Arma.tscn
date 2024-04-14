@@ -5,6 +5,7 @@
 [node name="Arma" type="CSGBox3D"]
 size = Vector3(0.2, 0.2, 0.2)
 script = ExtResource("1_srn71")
+dispersion = 0.7
 
 [node name="Boca_arma" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1549)

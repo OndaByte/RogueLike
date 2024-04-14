@@ -137,6 +137,8 @@ bind/33/pose = Transform3D(0.882053, -0.216228, 0.418601, -0.428744, -2.01165e-0
 [node name="aracnido_1" type="CharacterBody3D" groups=["Enemigos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.134693)
 script = ExtResource("1_wyqie")
+velocidad = 2.0
+aceleracion = 10.0
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -502,8 +504,8 @@ transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.6, -0.
 top_level = true
 script = ExtResource("3_b24mu")
 paso_obj = NodePath("../../Paso/RayCast3D5/Marker3D5")
-pata_adyacente = NodePath("../Marker3D3")
-pata_opuesta = NodePath("../Marker3D4")
+pata_adyacente = NodePath("../Marker3D1")
+pata_opuesta = NodePath("../Marker3D3")
 
 [node name="Marker3D6" type="Marker3D" parent="Objetivo" node_paths=PackedStringArray("paso_obj", "pata_adyacente", "pata_opuesta")]
 transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 0.6, -0.2, 0.149982)
@@ -535,6 +537,7 @@ script = ExtResource("4_kh0hc")
 
 [node name="RayCast3D" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.651834, -0.400073)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D1")
 
@@ -543,6 +546,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="RayCast3D2" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.651834, -0.15)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D2")
 
@@ -551,6 +555,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="RayCast3D3" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.651834, 0.2)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D3")
 
@@ -559,6 +564,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="RayCast3D4" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.651834, 0.55)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D4")
 
@@ -567,6 +573,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="RayCast3D5" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.651834, -0.4)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D5")
 
@@ -575,6 +582,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="RayCast3D6" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.651834, -0.15)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D6")
 
@@ -583,6 +591,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="RayCast3D7" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.651834, 0.2)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D7")
 
@@ -591,6 +600,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9, 0)
 
 [node name="RayCast3D8" type="RayCast3D" parent="Paso" node_paths=PackedStringArray("paso_obj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.651834, 0.55)
+target_position = Vector3(0, -2, 0)
 script = ExtResource("4_25gxs")
 paso_obj = NodePath("Marker3D8")
 

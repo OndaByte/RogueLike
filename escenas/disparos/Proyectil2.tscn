@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfc7uq4kt8pl"]
+
+[ext_resource type="Script" path="res://src/utilidades/Proyectil.gd" id="1_bcjlk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60xtv"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_8xijo"]
+material = SubResource("StandardMaterial3D_60xtv")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kvuwf"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_by4oo"]
+radius = 0.4
+
+[node name="Proyectil2" type="RigidBody3D"]
+collision_layer = 0
+mass = 0.5
+gravity_scale = 0.3
+script = ExtResource("1_bcjlk")
+velocidad = 2000.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_8xijo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kvuwf")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_by4oo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0, 0, 1)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
