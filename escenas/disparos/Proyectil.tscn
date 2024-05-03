@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1wgy2ia5up76"]
 
-[ext_resource type="Script" path="res://src/disparos/Proyectil.gd" id="1_1jqp4"]
+[ext_resource type="Script" path="res://escenas/disparos/Proyectil.gd" id="1_rsmvy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60xtv"]
 albedo_color = Color(0.470588, 0, 1, 1)
@@ -20,14 +20,13 @@ radius = 0.15
 radius = 0.3
 
 [node name="Proyectil" type="Node3D"]
-script = ExtResource("1_1jqp4")
-tiempo_vuelo = 3.0
-"daño" = 100
+script = ExtResource("1_rsmvy")
+"daño" = 10000
 
 [node name="Proyectil" type="RigidBody3D" parent="."]
 collision_layer = 0
 mass = 0.5
-gravity_scale = 0.3
+gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Proyectil"]
 mesh = SubResource("SphereMesh_8xijo")

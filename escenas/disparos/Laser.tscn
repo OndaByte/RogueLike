@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uwcfavk658kx"]
 
-[ext_resource type="Script" path="res://src/disparos/Laser.gd" id="1_q5vjb"]
+[ext_resource type="Script" path="res://escenas/disparos/Laser.gd" id="1_q5vjb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g56qi"]
 transparency = 1
@@ -16,7 +16,8 @@ size = Vector3(0.05, 0.05, 0.01)
 
 [node name="Laser" type="Node3D"]
 script = ExtResource("1_q5vjb")
-"daño" = 1
+duracion = 1.0
+"daño" = 50
 
 [node name="Laser" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -1000)
