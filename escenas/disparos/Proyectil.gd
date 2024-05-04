@@ -1,14 +1,13 @@
 extends Disparo
 @export var velocidad: float = 1000
 @export var tiempo_vuelo: float = 10
-@onready var proyectil = $"."
-@onready var mesh_instance_3d = $MeshInstance3D
+@onready var proyectil = $Proyectil
+
 const PROYECTIL = preload("res://escenas/disparos/Proyectil.tscn")
 var disparado = false
 var disparar = false
 var tiempo_aire = 0
 var cant_division = 0
-@onready var proyectil2 = $"."
 
 var actual_target = Vector3.ZERO
 
@@ -33,6 +32,6 @@ func _on_area_3d_body_entered(body):
 			actual_target.z = randf_range(-20,20)
 			actual_target.x = randf_range(-20,20)
 			var b = PROYECTIL.instantiate()
-			add_child(b)
-			b.look_at(actual_target+global_position, Vector3.UP)
+			proyectil.add_child(b)
+			b.look_at(actual_target+proyectil.global_position, Vector3.UP)
 	#queue_free()
