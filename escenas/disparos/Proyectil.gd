@@ -1,14 +1,12 @@
 extends Disparo
-
 @export var velocidad: float = 1000
 @export var tiempo_vuelo: float = 10
-@onready var proyectil = $Proyectil
-@onready var mesh_instance_3d = $Proyectil/MeshInstance3D
+@onready var proyectil = $"."
+@onready var mesh_instance_3d = $MeshInstance3D
 const PROYECTIL = preload("res://escenas/disparos/Proyectil.tscn")
 var disparado = false
 var disparar = false
 var tiempo_aire = 0
-var divide = false
 var cant_division = 0
 @onready var proyectil2 = $"."
 
@@ -31,11 +29,10 @@ func _physics_process(delta):
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Enemigos"):
 		body.golpe(daño)
-		if divide:
-			for i in range(cant_division):
-				actual_target.z = 20
-				actual_target.x = 20
-				var b = PROYECTIL.instantiate()
-				self.add_child(b)
-				b.look_at(actual_target+global_position, Vector3.UP)
+		for i in range(cant_division):
+			actual_target.z = randf_range(-20,20)
+			actual_target.x = randf_range(-20,20)
+			var b = PROYECTIL.instantiate()
+			add_child(b)
+			b.look_at(actual_target+global_position, Vector3.UP)
 	#queue_free()

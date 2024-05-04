@@ -16,8 +16,7 @@ class_name CamaraControl
 @onready var horizontal = $Horizontal
 @onready var vertical = $Horizontal/Vertical
 @onready var camara = $Horizontal/Vertical/Camera3D
-@onready var controles = $"../../Controles"
-
+@onready var controles = $"../Controles"
 
 var _rot_h: float = 0
 var _rot_v: float = 0
@@ -50,3 +49,9 @@ func _physics_process(delta):
 	else:
 		camara.transform.origin.z = lerp(camara.transform.origin.z,_distancia,velocidad_zoom*delta)
 	clip.target_position.z = camara.transform.origin.z
+
+func get_collision_point():
+	if mira.is_colliding():
+		return mira.get_collision_point()
+	else:
+		return mira.to_global(mira.target_position)

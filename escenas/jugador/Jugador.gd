@@ -4,16 +4,16 @@ class_name Jugador
 @onready var animation_player = $modelo/player/AnimationPlayer
 @onready var colision = $colision
 @onready var modelo = $modelo
-@onready var camara = $CamRot/Camara
+@onready var camara = $Camara
 @onready var maquina_estados_movimiento = $Movimiento
 @onready var animations = $modelo/player/AnimationPlayer
 @onready var controles = $Controles
 @onready var arma = $modelo/Arma
 @onready var arma_2 = $modelo/Arma2
-@onready var impulso_ready = $CamRot/Camara/Impulso_ready
-@onready var impulso_enfriando = $CamRot/Camara/Impulso_enfriando
-@onready var salto_ready = $CamRot/Camara/Salto_ready
-@onready var salto_enfriando = $CamRot/Camara/Salto_enfriando
+@onready var impulso_ready = $Camara/Impulso_ready
+@onready var impulso_enfriando = $Camara/Impulso_enfriando
+@onready var salto_ready = $Camara/Salto_ready
+@onready var salto_enfriando = $Camara/Salto_enfriando
 
 @export var altura_salto: float = 5
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -48,20 +48,16 @@ func _physics_process(delta):
 	else:
 		impulso_ready.visible = false
 		impulso_enfriando.visible = true
-		
+	
 	if (_enfriamiento_salto <= 0):
 		salto_ready.visible = true
 		salto_enfriando.visible = false
 	else:
 		salto_ready.visible = false
 		salto_enfriando.visible = true
-		
-	if camara.mira.is_colliding():
-		arma.mira = camara.mira.get_collision_point()
-		arma_2.mira = camara.mira.get_collision_point()
-	else:
-		arma.mira = camara.mira.to_global(camara.mira.target_position)
-		arma_2.mira = camara.mira.to_global(camara.mira.target_position)
+	
+	arma.mira = camara.get_collision_point()
+	arma_2.mira = arma.mira
 	if controles.disparando:
 		arma.disparar()
 	if controles.disparando2:

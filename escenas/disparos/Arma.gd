@@ -45,7 +45,6 @@ func disparar():
 			laseres[i].global_transform.basis = laseres[i].global_transform.basis.slerp(laseres[i].global_transform.looking_at(actual_target+boca_arma.global_position, Vector3.UP).basis, 0.05)
 		else:
 			var b = disparo.instantiate()
-			b.divide = divide
 			b.cant_division = cant_division
 			boca_arma.add_child(b)
 			b.look_at(actual_target+boca_arma.global_position, Vector3.UP)
