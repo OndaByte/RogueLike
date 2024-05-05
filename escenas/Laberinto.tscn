@@ -41,6 +41,7 @@ material = ExtResource("1_0kxea")
 
 [node name="Pared1" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.74125, 1.51714, 0)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 20)
@@ -48,6 +49,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.51714, -9.73692)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 19)
@@ -55,6 +57,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.74098, 1.51714, 0)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 20)
@@ -62,6 +65,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.51714, 9.7397)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 19)
@@ -69,6 +73,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 1.51714, -0.00725427)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 10)
@@ -76,6 +81,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 1.51714, -7.00942)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
@@ -83,6 +89,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 1.51714, -6.00725)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 10)
@@ -90,6 +97,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 1.51714, 2.69058)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
@@ -97,6 +105,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.0457, 1.51714, 5.47613)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
@@ -104,6 +113,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared10" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 1.51714, -0.00941968)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
@@ -111,6 +121,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared11" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.9558, 1.51714, -2.71891)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
@@ -118,6 +129,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared12" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 1.51714, 4.55151)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 10)
@@ -125,6 +137,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared13" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.51227, 1.51714, -0.170257)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
@@ -132,6 +145,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared14" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.80039, 1.51714, -2.7868)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 0.5)
@@ -139,6 +153,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared15" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5017, 1.51714, -2.7868)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 0.5)
@@ -146,6 +161,7 @@ material = ExtResource("2_62175")
 
 [node name="Pared16" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.980529, 1.51714, 7.17012)
+visible = false
 material_override = ExtResource("2_62175")
 use_collision = true
 size = Vector3(0.5, 2, 5)
@@ -157,10 +173,13 @@ environment = SubResource("Environment_oph4h")
 [node name="SpawnEnemigo" parent="." node_paths=PackedStringArray("objetivo") instance=ExtResource("6_d1erq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.69873, -9.68327)
 objetivo = NodePath("../Jugador")
+distancia_maxima = 100.0
 vida_maxima = 3000.0
 
 [node name="Item" parent="." instance=ExtResource("5_6ybjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54735, 1.83018, 7.93514)
+cant_proyectiles = 5
+enfriamiento = 0.5
 
 [node name="Item2" parent="." instance=ExtResource("6_6x4ry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40625, 1.68585, 5.10321)

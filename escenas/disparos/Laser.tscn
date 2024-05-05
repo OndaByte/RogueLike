@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uwcfavk658kx"]
 
-[ext_resource type="Script" path="res://escenas/disparos/Laser.gd" id="1_q5vjb"]
+[ext_resource type="Script" path="res://src/disparos/Laser.gd" id="1_q5vjb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g56qi"]
 transparency = 1

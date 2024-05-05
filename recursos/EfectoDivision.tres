@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EfectoDivision" load_steps=2 format=3 uid="uid://1tdjk3046hsp"]
+
+[ext_resource type="Script" path="res://src/disparos/EfectoDivision.gd" id="1_wwqi2"]
+
+[resource]
+script = ExtResource("1_wwqi2")
+cant_divisiones = 6

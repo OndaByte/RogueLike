@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EstadisticasArma" load_steps=2 format=3 uid="uid://dfqdh06imf8pj"]
+
+[ext_resource type="Script" path="res://src/recursos/EstadisticasArma.gd" id="1_auyl6"]
+
+[resource]
+script = ExtResource("1_auyl6")
+enfriamiento = 0.25
+dispersion_x = 0.05
+dispersion_y = 0.05
+dispersion_z = 0.05
+tipo_disparo = 0
+cant_disparos = 1.0
+"daño_disparo" = 1000.0

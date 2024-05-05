@@ -30,7 +30,6 @@ func _input(event):
 		disparando2 = true
 	if Input.is_action_just_released("disparar_2"):
 		disparando2 = false
-		
-func _process(delta):
+	
 	impulso = Input.is_action_just_pressed("impulso")
 	salto = Input.is_action_just_pressed("salto")

@@ -8,7 +8,7 @@ extends Marker3D
 var pisando: bool = false
 
 
-func _process(delta):
+func _process(_delta):
 	var pos_obj = paso_obj.global_position
 	if !pisando && !pata_adyacente.pisando && abs(global_position.distance_to(pos_obj)) >= paso_dist:
 		var mitad = (global_position + pos_obj)/2

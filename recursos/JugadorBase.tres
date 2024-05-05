@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EstadisticasJugador" load_steps=5 format=3 uid="uid://o5rr1mdbkg4p"]
+
+[ext_resource type="Resource" uid="uid://dfqdh06imf8pj" path="res://recursos/ArmaBase.tres" id="1_bfltt"]
+[ext_resource type="Script" path="res://src/recursos/EstadisticasJugador.gd" id="1_nfk4x"]
+[ext_resource type="Resource" uid="uid://dpi245eo65ag1" path="res://recursos/DefensaBase.tres" id="2_rmiwn"]
+[ext_resource type="Resource" uid="uid://bnuumw3nkhebj" path="res://recursos/MovimientoBase.tres" id="3_6lxnv"]
+
+[resource]
+script = ExtResource("1_nfk4x")
+estadisticas_defensa = ExtResource("2_rmiwn")
+estadisticas_movimiento = ExtResource("3_6lxnv")
+estadisticas_arma = ExtResource("1_bfltt")
