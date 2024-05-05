@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EstadisticasMovimiento" load_steps=2 format=3 uid="uid://dlorpjgnrjrx6"]
+
+[ext_resource type="Script" path="res://src/EstadisticasMovimiento.gd" id="1_trehb"]
+
+[resource]
+script = ExtResource("1_trehb")
+gravity = null
+altura_salto = 5.0
+cantidad_saltos = 2
+enfriamiento_salto = 0.01
+velocidad_maxima = 20.0
+velocidad_maxima_caminar = 4.0
+aceleracion_caminar = 3.0
+aceleracion_giro = 5.0
+velocidad_giro_camara = 8.0
+tiempo_impulso = 0.2
+velocidad_impulso = 40.0
+enfriamiento_impulso = 0.5
+cantidad_impulsos = 2

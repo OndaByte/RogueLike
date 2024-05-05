@@ -29,8 +29,8 @@ func _on_area_3d_body_entered(body):
 	if body.is_in_group("Enemigos"):
 		body.golpe(daño)
 		for i in range(cant_division):
-			actual_target.z = randf_range(-20,20)
-			actual_target.x = randf_range(-20,20)
+			actual_target.z = randf_range(-1,1)
+			actual_target.x = randf_range(-1,1)
 			var b = PROYECTIL.instantiate()
 			proyectil.add_child(b)
 			b.look_at(actual_target+proyectil.global_position, Vector3.UP)

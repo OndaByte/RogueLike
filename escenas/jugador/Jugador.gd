@@ -1,55 +1,41 @@
 extends CharacterBody3D
 class_name Jugador
 
-@onready var animation_player = $modelo/player/AnimationPlayer
 @onready var colision = $colision
 @onready var modelo = $modelo
 @onready var camara = $Camara
 @onready var maquina_estados_movimiento = $Movimiento
 @onready var animations = $modelo/player/AnimationPlayer
-@onready var controles = $Controles
+@onready var controles = get_node("/root/InputController")
 @onready var arma = $modelo/Arma
-@onready var arma_2 = $modelo/Arma2
 @onready var impulso_ready = $Camara/Impulso_ready
 @onready var impulso_enfriando = $Camara/Impulso_enfriando
 @onready var salto_ready = $Camara/Salto_ready
 @onready var salto_enfriando = $Camara/Salto_enfriando
 
-@export var altura_salto: float = 5
-@export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-@export var cantidad_saltos: int = 2
-@export var enfriamiento_salto: float = 0.01
-@export var velocidad_maxima: float = 20
-@export var velocidad_maxima_caminar: float = 4
-@export var aceleracion_caminar: float = 3
-@export var aceleracion_giro: float = 5
-@export var velocidad_giro_camara: float = 8
-@export var tiempo_impulso: float = 0.2
-@export var velocidad_impulso: float = 40.0
-@export var enfriamiento_impulso: float = 0.5
-@export var cantidad_impulsos: int = 2
-
-var contador_saltos: int = 0
-var contador_impulsos: int = 0
-var _enfriamiento_salto: float = 0
-var _enfriamiento_impulso: float = 0
+@export var estadisticas: EstadisticasJugador
 
 func _ready():
-	maquina_estados_movimiento.init(self, animations)
+	estadisticas.estadisticas_movimiento.camara_rot_h = camara._rot_h
+	maquina_estados_movimiento.init(estadisticas.estadisticas_movimiento, animations)
 
 func _physics_process(delta):
 	maquina_estados_movimiento.physics_process(delta)
-	_enfriamiento_impulso -= delta 
-	_enfriamiento_salto -= delta
+	estadisticas.estadisticas_movimiento.cayendo = !self.is_on_floor()
+	estadisticas.estadisticas_movimiento.enfriamiento_impulso_real -= delta 
+	estadisticas.estadisticas_movimiento.enfriamiento_salto_real-= delta
+	velocity = estadisticas.estadisticas_movimiento.velocity
+	modelo.rotation.y = estadisticas.estadisticas_movimiento.rotation.y
 	
-	if (_enfriamiento_impulso <= 0):
+	estadisticas.estadisticas_movimiento.camara_rot_h = camara._rot_h
+	if (estadisticas.estadisticas_movimiento.enfriamiento_impulso_real <= 0):
 		impulso_ready.visible = true
 		impulso_enfriando.visible = false
 	else:
 		impulso_ready.visible = false
 		impulso_enfriando.visible = true
 	
-	if (_enfriamiento_salto <= 0):
+	if (estadisticas.estadisticas_movimiento.enfriamiento_salto_real <= 0):
 		salto_ready.visible = true
 		salto_enfriando.visible = false
 	else:
@@ -57,9 +43,6 @@ func _physics_process(delta):
 		salto_enfriando.visible = true
 	
 	arma.mira = camara.get_collision_point()
-	arma_2.mira = arma.mira
 	if controles.disparando:
 		arma.disparar()
-	if controles.disparando2:
-		arma_2.disparar()
 	move_and_slide()

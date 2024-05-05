@@ -9,13 +9,14 @@ var tiempo_transcurrido: float = 0.0 ##Usado para calcular la duracion del impul
 var direccion_dash: Vector3 = Vector3.ZERO
 
 func entrar():
-	super()
 	animacion = "aim_walk"
+	super()
+	
 	tiempo_transcurrido = 0.0
 	objetivo.velocity.y = 0
-	if objetivo._enfriamiento_impulso <= 0:
+	if objetivo.enfriamiento_impulso_real <= 0:
 		objetivo.contador_impulsos = 0
-	objetivo._enfriamiento_impulso = objetivo.enfriamiento_impulso
+	objetivo.enfriamiento_impulso_real= objetivo.enfriamiento_impulso
 	objetivo.contador_impulsos += 1
 
 func physics_process(delta):

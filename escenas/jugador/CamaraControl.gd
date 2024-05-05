@@ -16,8 +16,8 @@ class_name CamaraControl
 @onready var horizontal = $Horizontal
 @onready var vertical = $Horizontal/Vertical
 @onready var camara = $Horizontal/Vertical/Camera3D
-@onready var controles = $"../Controles"
 
+@onready var controles = get_node("/root/InputController")
 var _rot_h: float = 0
 var _rot_v: float = 0
 var _distancia: float = distancia_inicial

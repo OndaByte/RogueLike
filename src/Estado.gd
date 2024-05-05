@@ -2,12 +2,11 @@ extends Node
 class_name Estado
 
 var animacion: String
-var objetivo: Node
+var objetivo: Resource
 var animaciones: AnimationMixer
 
 func entrar():
 	animaciones.play(animacion)
-	pass
 
 func salir():
 	pass

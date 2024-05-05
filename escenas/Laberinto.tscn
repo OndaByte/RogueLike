@@ -23,10 +23,6 @@ shadow_enabled = true
 
 [node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653513, 6.65285)
-tiempo_impulso = 0.1
-velocidad_impulso = 80.0
-enfriamiento_impulso = 0.3
-cantidad_impulsos = 2
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9353, 0, -4.30954)

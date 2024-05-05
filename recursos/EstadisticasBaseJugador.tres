@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EstadisticasJugador" load_steps=4 format=3 uid="uid://5ut5bjpcre71"]
+
+[ext_resource type="Script" path="res://src/EstadisticasJugador.gd" id="1_c68ui"]
+[ext_resource type="Resource" uid="uid://cpvypijas7ykf" path="res://recursos/CombateBaseJugador.tres" id="1_gbmxv"]
+[ext_resource type="Resource" uid="uid://dlorpjgnrjrx6" path="res://recursos/MovimientoBaseJugador.tres" id="2_6ixg1"]
+
+[resource]
+script = ExtResource("1_c68ui")
+estadisticas_movimiento = ExtResource("2_6ixg1")
+estadisticas_combate = ExtResource("1_gbmxv")
