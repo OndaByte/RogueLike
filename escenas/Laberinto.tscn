@@ -3,8 +3,8 @@
 [ext_resource type="Material" uid="uid://jcfce8kpc7n8" path="res://materiales/piso_material.tres" id="1_0kxea"]
 [ext_resource type="Material" uid="uid://d3xrfibgfvwjc" path="res://materiales/pared_material.tres" id="2_62175"]
 [ext_resource type="PackedScene" uid="uid://yrv3v07ay4yo" path="res://escenas/jugador/Jugador.tscn" id="3_6lkno"]
-[ext_resource type="PackedScene" uid="uid://cf5f6r0ulshqp" path="res://escenas/disparos/Item.tscn" id="5_6ybjs"]
-[ext_resource type="PackedScene" uid="uid://c2tqk48wepee8" path="res://escenas/disparos/Item2.tscn" id="6_6x4ry"]
+[ext_resource type="PackedScene" uid="uid://cf5f6r0ulshqp" path="res://escenas/Items/Item.tscn" id="5_6ybjs"]
+[ext_resource type="PackedScene" uid="uid://c2tqk48wepee8" path="res://escenas/Items/Item2.tscn" id="6_6x4ry"]
 [ext_resource type="PackedScene" uid="uid://cgq4g87est8hg" path="res://escenas/enemigos/SpawnEnemigo.tscn" id="6_d1erq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_fxfkn"]
@@ -22,7 +22,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653513, 6.65285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.388453, 0.683488, 6.73772)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9353, 0, -4.30954)
@@ -173,13 +173,16 @@ environment = SubResource("Environment_oph4h")
 [node name="SpawnEnemigo" parent="." node_paths=PackedStringArray("objetivo") instance=ExtResource("6_d1erq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 5.69873, -9.68327)
 objetivo = NodePath("../Jugador")
+enfriamiento = 3.0
 distancia_maxima = 100.0
 vida_maxima = 3000.0
 
 [node name="Item" parent="." instance=ExtResource("5_6ybjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54735, 1.83018, 7.93514)
-cant_proyectiles = 5
-enfriamiento = 0.5
+cant_proyectiles = 1
+dispersion_x = 0.3
+dispersion_z = 0.3
+dispersion_y = 0.0
 
 [node name="Item2" parent="." instance=ExtResource("6_6x4ry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40625, 1.68585, 5.10321)

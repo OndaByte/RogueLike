@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_wwqi2")
-cant_divisiones = 6
+cant_divisiones = 24
+magnitud_hijos = 1.0

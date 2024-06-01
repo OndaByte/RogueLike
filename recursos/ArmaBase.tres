@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_auyl6")
 enfriamiento = 0.25
-dispersion_x = 0.05
-dispersion_y = 0.05
-dispersion_z = 0.05
+dispersion_x = 0.0
+dispersion_y = 0.0
+dispersion_z = 0.0
 tipo_disparo = 0
 cant_disparos = 1.0
-"daño_disparo" = 1000.0
+"daño_disparo" = 10000.0

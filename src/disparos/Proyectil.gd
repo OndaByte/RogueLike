@@ -1,6 +1,6 @@
 extends Disparo
 class_name Proyectil
-@export var tiempo_vuelo: float = 10
+@export var tiempo_vuelo: float = 5
 
 const PROYECTIL = preload("res://escenas/disparos/Proyectil.tscn")
 @onready var proyectil = $Proyectil
@@ -13,7 +13,10 @@ var actual_target = Vector3.ZERO
 func _ready():
 	set_as_top_level(true)
 	for efecto in efectos_disparo:
-		efecto.disparo = self
+		efecto.disparo = self.nueva_instancia()
+		efecto.disparo.efectos_disparo = self.efectos_disparo
+		efecto.disparo.daño = self.daño
+		efecto.padre_disparo = self.get_parent()
 	disparar = true
 
 func golpeando(body):	#ACA TENGO QUE CAMBIARLO POR ESTADISTICAS_ENEMIGO, CREAR ESTADISTICAS DEL ENEMIGO ETC.
