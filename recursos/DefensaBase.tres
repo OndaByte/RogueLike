@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EstadisticasDefensa" load_steps=2 format=3 uid="uid://dpi245eo65ag1"]
 
-[ext_resource type="Script" path="res://src/recursos/EstadisticasDefensa.gd" id="1_piql2"]
+[ext_resource type="Script" path="res://src/recursos/estadisticas/EstadisticasDefensa.gd" id="1_piql2"]
 
 [resource]
 script = ExtResource("1_piql2")

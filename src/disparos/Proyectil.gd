@@ -13,9 +13,7 @@ var actual_target = Vector3.ZERO
 func _ready():
 	set_as_top_level(true)
 	for efecto in efectos_disparo:
-		efecto.disparo = self.nueva_instancia()
-		efecto.disparo.efectos_disparo = self.efectos_disparo
-		efecto.disparo.daño = self.daño
+		efecto.disparo = self
 		efecto.padre_disparo = self.get_parent()
 	disparar = true
 
@@ -39,7 +37,7 @@ func _on_area_3d_body_entered(body):
 	if body.is_in_group("Enemigos"):
 		golpeando(body)
 		body.golpe(daño)
-		queue_free()
+	queue_free()
 
 func nueva_instancia():
 	return PROYECTIL.instantiate()

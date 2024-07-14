@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2tqk48wepee8"]
 
 [ext_resource type="Script" path="res://src/items/Item_2.gd" id="1_62c0f"]
-[ext_resource type="Resource" uid="uid://1tdjk3046hsp" path="res://recursos/EfectoDivision.tres" id="2_d5sfd"]
+[ext_resource type="Resource" uid="uid://cxx8w36qwm38o" path="res://recursos/DivisionDisparos.tres" id="2_xpyfv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_opxcq"]
 
 [node name="Item2" type="Node3D"]
 script = ExtResource("1_62c0f")
-efecto = ExtResource("2_d5sfd")
+efecto = ExtResource("2_xpyfv")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 

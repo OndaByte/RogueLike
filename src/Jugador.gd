@@ -20,6 +20,7 @@ class_name Jugador
 
 func agregar_item(item: ItemInterface):
 	item.init(estadisticas)
+	## ACA TENGO QUE CONTROLAR COMO SE APILAN LOS ITEMS (SI ES QUE QUIERO QUE SE APILEN)
 	item.aplicar()
 	items.append(item)
 

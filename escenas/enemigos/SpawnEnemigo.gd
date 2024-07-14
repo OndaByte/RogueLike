@@ -12,7 +12,6 @@ func _ready():
 	pass 
 
 func spawn():
-	
 	if enfriamiento_actual > 0:
 		return
 	enfriamiento_actual = enfriamiento

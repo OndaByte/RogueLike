@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EfectoExplosion" load_steps=2 format=3 uid="uid://0k7it8262j6u"]
+
+[ext_resource type="Script" path="res://src/recursos/efectos/EfectoExplosion.gd" id="1_18g02"]
+
+[resource]
+script = ExtResource("1_18g02")
+radio_explosion = 1
+apila = false
+tope_pila = 0
+nombre_efecto = "EfectoExplosion"

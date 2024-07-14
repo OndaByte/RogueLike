@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cbsgbvhr7xwpq"]
 
-[ext_resource type="Script" path="res://escenas/enemigos/Enemigo.gd" id="1_wyqie"]
+[ext_resource type="Script" path="res://src/Enemigo.gd" id="1_wyqie"]
 [ext_resource type="Script" path="res://escenas/enemigos/Procedural/Aracnido_ik.gd" id="2_xam8j"]
 [ext_resource type="Script" path="res://escenas/enemigos/Procedural/Objetivo_ik.gd" id="3_b24mu"]
 [ext_resource type="Script" path="res://escenas/enemigos/Procedural/ControlSuperficieTarget.gd" id="4_25gxs"]

@@ -12,6 +12,19 @@ var direccion: Vector3 = Vector3()
 var rotacion: float = 0
 var vida_actual
 
+var efectos : Dictionary = {}
+
+func agregar_efecto(nombre : String):
+	if efectos.has(nombre):
+		efectos[nombre] = efectos[nombre] + 1
+		return
+	efectos[nombre] = 1
+
+func cant_efectos(nombre : String):
+	if efectos.has(nombre):
+		return efectos[nombre]
+	return 0
+
 func _ready():
 	vida_actual = vida
 

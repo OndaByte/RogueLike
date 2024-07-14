@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EstadisticasMovimiento" load_steps=2 format=3 uid="uid://bnuumw3nkhebj"]
 
-[ext_resource type="Script" path="res://src/recursos/EstadisticasMovimiento.gd" id="1_358bk"]
+[ext_resource type="Script" path="res://src/recursos/estadisticas/EstadisticasMovimiento.gd" id="1_358bk"]
 
 [resource]
 script = ExtResource("1_358bk")
