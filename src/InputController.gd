@@ -12,7 +12,7 @@ func _input(event):
 	movimiento = Input.get_vector("izquierda", "derecha", "adelante", "atras").normalized()
 	
 	if event is InputEventMouseMotion:
-			mouse_posicion = event.relative
+		mouse_posicion = event.relative
 	
 	if Input.is_action_just_pressed("menu"):
 		capturando = !capturando

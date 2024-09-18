@@ -2,25 +2,22 @@ extends Node
 class_name Estado
 
 var animacion: String
-var objetivo: Resource
+var objetivo: Object
 var animaciones: AnimationMixer
 
-func entrar():
+func entrar() -> void:
 	animaciones.play(animacion)
 
-func salir():
+func salir() -> void:
 	pass
 
-func input(_event) -> Estado:
+func input() -> Estado:
 	return null
 
-func unhandled_input(_event) -> Estado:
+func process(delta: float) -> Estado:
 	return null
 
-func process(_delta) -> Estado:
-	return null
-
-func physics_process(_delta) -> Estado:
+func physics_process(delta: float) -> Estado:
 	return null
 
 func get_maquina_estados(_nodo):

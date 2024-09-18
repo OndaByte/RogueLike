@@ -17,6 +17,7 @@ script = ExtResource("1_8k3q0")
 [node name="Proyectil" type="RigidBody3D" parent="."]
 collision_layer = 0
 mass = 0.5
+gravity_scale = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Proyectil"]
 shape = SubResource("SphereShape3D_17sk7")

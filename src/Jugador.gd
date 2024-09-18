@@ -29,9 +29,11 @@ func _ready():
 	arma.estadisticas = estadisticas.estadisticas_arma
 	maquina_estados_movimiento.init(estadisticas_movimiento, animations)
 
+func _input(event: InputEvent) -> void:
+	maquina_estados_movimiento.input()
+
 func _physics_process(delta):
 	maquina_estados_movimiento.physics_process(delta)
-	estadisticas_movimiento.cayendo = !self.is_on_floor()
 	estadisticas_movimiento.enfriamiento_impulso_real -= delta 
 	estadisticas_movimiento.enfriamiento_salto_real-= delta
 	velocity = estadisticas_movimiento.velocity
@@ -56,3 +58,5 @@ func _physics_process(delta):
 	if controles.disparando:
 		arma.disparar()
 	move_and_slide()
+	
+	estadisticas_movimiento.cayendo = !self.is_on_floor()

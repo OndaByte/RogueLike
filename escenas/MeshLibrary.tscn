@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctjry06amn74p"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5tcma"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="TunelSimple" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_5tcma")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]

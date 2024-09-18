@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://cy55f8evcaum7"]
+
+[ext_resource type="Shader" path="res://escenas/efectos/Explosion.gdshader" id="1_a5c3r"]
+[ext_resource type="Script" path="res://src/recursos/explosion.gd" id="1_k6cp5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6qep1"]
+
+[sub_resource type="Gradient" id="Gradient_eu70q"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y8c87"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cijcj"]
+color_ramp = SubResource("Gradient_eu70q")
+noise = SubResource("FastNoiseLite_y8c87")
+
+[sub_resource type="Gradient" id="Gradient_q2s2s"]
+interpolation_mode = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m2v0y"]
+noise_type = 2
+seed = 7
+fractal_type = 3
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0u62c"]
+color_ramp = SubResource("Gradient_q2s2s")
+noise = SubResource("FastNoiseLite_m2v0y")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uga1d"]
+color_ramp = SubResource("Gradient_q2s2s")
+noise = SubResource("FastNoiseLite_m2v0y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5cpg"]
+render_priority = 0
+shader = ExtResource("1_a5c3r")
+shader_parameter/distortionView = 0.03
+shader_parameter/speedView = 0.5
+shader_parameter/tintColor = Color(0, 0.0666667, 1, 1)
+shader_parameter/fesnelAmount = 0.0
+shader_parameter/distortionVertex = 0.05
+shader_parameter/speedVertex = 0.1
+shader_parameter/noiseViewX = SubResource("NoiseTexture2D_0u62c")
+shader_parameter/noiseViewY = SubResource("NoiseTexture2D_uga1d")
+shader_parameter/noiseVertex = SubResource("NoiseTexture2D_cijcj")
+
+[sub_resource type="SphereMesh" id="SphereMesh_yhv75"]
+material = SubResource("ShaderMaterial_j5cpg")
+radial_segments = 32
+rings = 16
+
+[node name="Explosion" type="Node3D"]
+transform = Transform3D(0.99622, 0, 0, 0, 0.99622, 0, 0, 0, 0.99622, 0, 0, 0)
+script = ExtResource("1_k6cp5")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_6qep1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("SphereMesh_yhv75")

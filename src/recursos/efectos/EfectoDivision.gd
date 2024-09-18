@@ -11,7 +11,7 @@ func efecto_golpe(body):
 	var aux_dispersion = 2*PI * randf()
 	var angulo
 	var actual_target
-	if body.cant_efectos(nombre_efecto) > tope_pila:
+	if apila && body.cant_efectos(nombre_efecto) > tope_pila:
 		return
 	body.agregar_efecto(nombre_efecto)
 	for i in range(cant_divisiones):

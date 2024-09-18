@@ -10,11 +10,14 @@ func entrar():
 	super()
 	objetivo.velocity = Vector3.ZERO
 
-func physics_process(_delta) -> Estado:
-	if !objetivo.is_on_floor():
-		return estado_cayendo
+func input() -> Estado:
 	if InputController.salto:
 		return estado_saltando
+	return null
+
+func physics_process(_delta) -> Estado:
 	if InputController.movimiento != Vector2.ZERO:
 		return estado_caminando
+	if !objetivo.is_on_floor():
+		return estado_cayendo
 	return null

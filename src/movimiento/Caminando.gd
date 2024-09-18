@@ -15,10 +15,12 @@ func entrar():
 	objetivo.velocity.y = 0
 	super()
 
-func physics_process(delta):
+func input() -> Estado:
 	if InputController.salto:
 		return estado_saltando
-	
+	return null
+
+func physics_process(delta):
 	mov_dir = InputController.movimiento
 	if mov_dir == Vector2.ZERO:
 		return estado_detenido
@@ -27,12 +29,12 @@ func physics_process(delta):
 	mov_rot = lerp(mov_rot,deg_to_rad(objetivo.camara_rot_h),objetivo.velocidad_giro_camara*delta) #Roto en base a la camara
 	direccion = direccion.rotated(Vector3.UP,mov_rot)
 	vel = vel.lerp(direccion*objetivo.velocidad_maxima_caminar,objetivo.aceleracion_caminar*delta) #Calculo velocidad, esta es gradual no instantanea
-	
 	rotacion = lerp_angle(rotacion,atan2(-direccion.x,-direccion.z),objetivo.aceleracion_giro*delta)
+	
 	objetivo.rotation.y = rotacion
 	objetivo.velocity = vel
 	
-	if InputController.impulso && (objetivo.enfriamiento_impulso <= 0 || objetivo.contador_impulsos < objetivo.cantidad_impulsos):
+	if InputController.impulso && (objetivo.enfriamiento_impulso_real <= 0 || objetivo.contador_impulsos < objetivo.cantidad_impulsos):
 		estado_impulso.direccion_dash = direccion
 		return estado_impulso
 	

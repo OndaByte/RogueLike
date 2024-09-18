@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EfectoDivision" load_steps=2 format=3 uid="uid://1tdjk3046hsp"]
+
+[ext_resource type="Script" path="res://src/recursos/efectos/EfectoDivision.gd" id="1_wwqi2"]
+
+[resource]
+script = ExtResource("1_wwqi2")
+cant_divisiones = 6
+magnitud_hijos = 1.0
+"daño_hijos" = 1.0
+apila = true
+tope_pila = 1
+nombre_efecto = "Division Disparos"

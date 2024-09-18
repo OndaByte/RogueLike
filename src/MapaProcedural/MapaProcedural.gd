@@ -1,10 +1,10 @@
 @tool
 extends Node3D  
 @onready var grid_map : GridMap = $GridMap #va a ejecutar cuando este ready
-@export var start : bool = false : set = set_start
+@export var Generar : bool = false : set = generar
 
-func set_start(val:bool)->void:
-	set_border_size()
+func generar(val:bool)->void:
+	set_limite()
 @export var z_max : int = 40
 @export var y_max : int = 40
 @export var x_max : int = 40
@@ -22,27 +22,30 @@ var x_actual: int = 0
 # Step 5 / Pathfind hallways
 
 
-func set_border_size()->void:
+func set_limite()->void:
 	z_actual=randi() % z_max
 	y_actual=randi() % y_max
 	x_actual=randi() % x_max
 	if Engine.is_editor_hint():
-		visualize_border()
+		generar_mapa()
 
 func generar_habitaciones():
 	var i: int = 0
+	while(can_habitaciones>i):
+		random_tile(0)
+		i+=1
+
+func random_tile(i:int):
 	var z_aux: int = 0
 	var y_aux: int = 0
 	var x_aux: int = 0
-	while(can_habitaciones>i):
-		while (grid_map.get_cell_item(Vector3(x_aux,y_aux,z_aux)) != grid_map.INVALID_CELL_ITEM):
-			z_aux = randi() % z_actual
-			y_aux = randi() % y_actual
-			x_aux = randi() % x_actual
-		i+=1
-		grid_map.set_cell_item(Vector3i(x_aux,y_aux,z_aux),0)
+	while (grid_map.get_cell_item(Vector3(x_aux,y_aux,z_aux)) != grid_map.INVALID_CELL_ITEM):
+		z_aux = randi() % z_actual
+		y_aux = randi() % y_actual
+		x_aux = randi() % x_actual
+	grid_map.set_cell_item(Vector3i(x_aux,y_aux,z_aux),i)
 
-func visualize_border():
+func generar_mapa():
 	grid_map.clear()
 	for i in range(0,z_actual+1):
 		grid_map.set_cell_item(Vector3i(0,0,i),1)

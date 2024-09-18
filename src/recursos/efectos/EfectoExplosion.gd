@@ -2,18 +2,12 @@ extends EfectoDisparo
 class_name EfectoExplosion
 
 @export var radio_explosion = 3
+var explosion = preload("res://escenas/efectos/Explosion.tscn")
 
-
-func efecto_golpe(_target):	
+func efecto_golpe(_target):
 	if disparo == null:
 		return
-	
-	var sphere_instance = MeshInstance3D.new()
-	var sphere_mesh = SphereMesh.new()
-	sphere_mesh.radius = radio_explosion
-	sphere_mesh.height = radio_explosion*2
-	sphere_instance.mesh = sphere_mesh
-	
-	padre_disparo.add_child(sphere_instance)
-	sphere_instance.global_position = pos_golpe
-	sphere_instance.set_as_top_level(true)
+	var instancia = explosion.instantiate()
+	padre_disparo.add_child(instancia)
+	instancia.global_position = pos_golpe
+	instancia.set_as_top_level(true)
