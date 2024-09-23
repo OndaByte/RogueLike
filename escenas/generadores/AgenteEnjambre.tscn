@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cixbelui2hypb"]
+
+[ext_resource type="Script" path="res://src/generadores/Agente.gd" id="1_e0moh"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oc0gb"]
+points = PackedVector3Array(0, 0, 0, 1, 2, 1, -1, 2, 1, 1, 2, -1, -1, 2, -1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yjk34"]
+lifetime_randomness = 1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xs88y"]
+radius = 0.025
+height = 0.05
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qpiex"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="AgenteEnjambre" type="CharacterBody3D" groups=["Enjambre"]]
+script = ExtResource("1_e0moh")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+radius = 0.05
+height = 0.1
+cone = true
+
+[node name="Cercanos" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cercanos"]
+shape = SubResource("ConvexPolygonShape3D_oc0gb")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0693901)
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_yjk34")
+draw_pass_1 = SubResource("SphereMesh_xs88y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qpiex")
+
+[connection signal="body_entered" from="Cercanos" to="." method="_on_cercanos_body_entered"]
+[connection signal="body_exited" from="Cercanos" to="." method="_on_cercanos_body_exited"]

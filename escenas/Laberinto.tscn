@@ -1,194 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmi7b0swrfdad"]
+[gd_scene load_steps=5 format=3 uid="uid://cmi7b0swrfdad"]
 
-[ext_resource type="Material" uid="uid://jcfce8kpc7n8" path="res://materiales/piso_material.tres" id="1_0kxea"]
-[ext_resource type="Material" uid="uid://d3xrfibgfvwjc" path="res://materiales/pared_material.tres" id="2_62175"]
-[ext_resource type="PackedScene" uid="uid://yrv3v07ay4yo" path="res://escenas/jugador/Jugador.tscn" id="3_6lkno"]
-[ext_resource type="PackedScene" uid="uid://cf5f6r0ulshqp" path="res://escenas/Items/Item.tscn" id="5_6ybjs"]
-[ext_resource type="PackedScene" uid="uid://c2tqk48wepee8" path="res://escenas/Items/Item2.tscn" id="6_6x4ry"]
-[ext_resource type="PackedScene" uid="uid://c3k0bfubcrd0s" path="res://escenas/Items/Item3.tscn" id="7_nmrcp"]
-[ext_resource type="Resource" uid="uid://0k7it8262j6u" path="res://recursos/EfectoExplosion.tres" id="8_e3pll"]
+[ext_resource type="Script" path="res://escenas/spawner.gd" id="3_f1aym"]
+[ext_resource type="PackedScene" uid="uid://cixbelui2hypb" path="res://escenas/generadores/AgenteEnjambre.tscn" id="8_7kibl"]
 
-[sub_resource type="Environment" id="Environment_oph4h"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_s3kvy"]
+radius = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iv36d"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.2)
 
 [node name="escena" type="Node3D"]
 
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, -0.2, -4.7)
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+script = ExtResource("3_f1aym")
+node_to_spawn = ExtResource("8_7kibl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+shape = SubResource("SphereShape3D_s3kvy")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D"]
+radius = 3.0
+radial_segments = 32
+rings = 12
+material = SubResource("StandardMaterial3D_iv36d")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4, 0)
 
-[node name="Jugador" parent="." instance=ExtResource("3_6lkno")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.388453, 0.683488, 23.6961)
+[node name="Camera3D" type="Camera3D" parent="."]
 
-[node name="Piso" type="CSGBox3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -2.9353, 0, -4.30954)
-material_override = ExtResource("1_0kxea")
-use_collision = true
-size = Vector3(1000, 1, 1000)
-material = ExtResource("1_0kxea")
-
-[node name="Laberinto" type="CSGCombiner3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -2.9353, 0, -4.30954)
-use_collision = true
-collision_mask = 3
-
-[node name="Pared1" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.74125, 1.51714, 0)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 15)
-material = ExtResource("2_62175")
-
-[node name="Pared2" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.51714, -9.73692)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 19)
-material = ExtResource("2_62175")
-
-[node name="Pared3" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.74098, 1.51714, 0)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 20)
-material = ExtResource("2_62175")
-
-[node name="Pared4" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.51714, 9.7397)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 19)
-material = ExtResource("2_62175")
-
-[node name="Pared5" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 1.51714, -0.00725427)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 10)
-material = ExtResource("2_62175")
-
-[node name="Pared6" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 1.51714, -7.00942)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Pared7" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 1.51714, -6.00725)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 10)
-material = ExtResource("2_62175")
-
-[node name="Pared8" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 1.51714, 2.69058)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Pared9" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.0457, 1.51714, 5.47613)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Pared10" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.7, 1.51714, -0.00941968)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Pared11" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.9558, 1.51714, -2.71891)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Pared12" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.5, 1.51714, 4.55151)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 10)
-material = ExtResource("2_62175")
-
-[node name="Pared13" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.51227, 1.51714, -0.170257)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Pared14" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.80039, 1.51714, -2.7868)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 0.5)
-material = ExtResource("2_62175")
-
-[node name="Pared15" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5017, 1.51714, -2.7868)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 0.5)
-material = ExtResource("2_62175")
-
-[node name="Pared16" type="CSGBox3D" parent="Laberinto"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -0.980529, 1.51714, 7.17012)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Rampas" type="CSGCombiner3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -2.9353, 0, 50.6278)
-use_collision = true
-collision_mask = 3
-
-[node name="Pared4" type="CSGBox3D" parent="Rampas"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.51714, 9.7397)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 19)
-material = ExtResource("2_62175")
-
-[node name="Pared5" type="CSGBox3D" parent="Rampas"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 1.51714, -0.00725427)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 10)
-material = ExtResource("2_62175")
-
-[node name="Pared6" type="CSGBox3D" parent="Rampas"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.5, 1.51714, -7.00942)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 5)
-material = ExtResource("2_62175")
-
-[node name="Pared7" type="CSGBox3D" parent="Rampas"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 1.51714, -6.00725)
-material_override = ExtResource("2_62175")
-use_collision = true
-size = Vector3(0.5, 2, 10)
-material = ExtResource("2_62175")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_oph4h")
-
-[node name="Item" parent="." instance=ExtResource("5_6ybjs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54735, 1.83018, 7.93514)
-cant_proyectiles = 1
-dispersion_x = 0.3
-dispersion_z = 0.3
-dispersion_y = 0.0
-
-[node name="Item2" parent="." instance=ExtResource("6_6x4ry")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40625, 1.68585, 5.10321)
-
-[node name="Item3" parent="." instance=ExtResource("7_nmrcp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2322, 1.63088, 8.05406)
-efecto = ExtResource("8_e3pll")
+[connection signal="body_exited" from="Node3D/Area3D" to="Node3D/Area3D" method="_on_body_exited"]

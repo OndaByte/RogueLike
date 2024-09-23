@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_358bk")
-altura_salto = 5.0
-cantidad_saltos = 2
+altura_salto = 10.0
+cantidad_saltos = 1000
 enfriamiento_salto = 0.01
 velocidad_maxima = 20.0
 velocidad_maxima_caminar = 4.0
