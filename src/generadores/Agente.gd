@@ -6,6 +6,10 @@ class_name Agente
 @export var variacion: float = 45
 @export var velocidad: float = 1
 @export var angulo_vel: float = 2
+
+@export var peso_separacion: float = 10
+@export var peso_alineacion: float = 10
+@export var peso_agrupacion: float = 100
 @onready var csg_cylinder_3d: CSGCylinder3D = $CSGCylinder3D
 
 static var contador_id: int = 0
@@ -20,21 +24,43 @@ func _init() -> void:
 	contador_id += 1
 
 func _process(delta: float) -> void:
+	tiempo -= delta
 	translate(Vector3(0, 0, -1) * velocidad * delta)
 	calcular_direccion()
+	if tiempo < 0:
+		tiempo = 1
 	if(dir.x != 0 || dir.y != 0 || dir.z != 0):
 		global_transform.basis = global_transform.basis.slerp(global_transform.looking_at(dir+global_position, Vector3.UP).basis, 0.1)
 
 func calcular_direccion() -> void:
+	if tiempo <= 0:
+		var angulo_aleatorio = randf_range(-variacion, variacion)
+		var eje_rotacion = Vector3.UP
+		var rotacion = Quaternion(eje_rotacion, angulo_aleatorio)
+		dir = rotacion* transform.basis.z
+		eje_rotacion = Vector3.RIGHT
+		rotacion = Quaternion(eje_rotacion, angulo_aleatorio)
+		dir = rotacion* transform.basis.z
+	if vecinos.size() == 0:
+		return
 	var aux: float
+	var dir_vecino: Vector3
+	var distancia: float
+	var centro_enjambre: Vector3 = Vector3()
 	for v in vecinos:
-		var distancia: float = (v.global_position - global_position).length()
-		if distancia < distancia_min:
+		centro_enjambre += v.global_position
+		dir_vecino = v.global_position - global_position
+		distancia = dir_vecino.length()
+		if distancia < distancia_min: #Si estan muy cerca
 			aux = clampf(distancia/ distancia_min, 0, 1)
-			dir -= aux * (v.global_position - global_position)
-		elif distancia > distancia_max:
+			dir -= aux * dir_vecino * peso_separacion
+		elif distancia > distancia_max: #Si estan muy lejos
 			aux = clampf(distancia/ distancia_max, 0, 1)
-			dir += aux * v.dir
+			dir += aux * v.dir * peso_alineacion
+	
+	centro_enjambre = centro_enjambre/vecinos.size() - global_position
+	
+	dir += centro_enjambre * peso_agrupacion
 	dir = dir.normalized()
 	
 func _on_cercanos_body_entered(body: Node3D) -> void:
@@ -42,7 +68,6 @@ func _on_cercanos_body_entered(body: Node3D) -> void:
 		return
 	if body.is_in_group("Enjambre"):
 		vecinos.append(body)
-
 
 func _on_cercanos_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Enjambre"):

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0oy7g5ifw50x"]
+
+[ext_resource type="Shader" uid="uid://d128y0ktpspyu" path="res://assets/shaders/FuegoCono.tres" id="1_guwsu"]
+[ext_resource type="ArrayMesh" uid="uid://yopk0tv6ixbb" path="res://assets/modelos/proyectil.obj" id="2_6xh12"]
+[ext_resource type="Shader" uid="uid://womm0ieoopjj" path="res://assets/shaders/FuegoProyectil.tres" id="3_fpcsb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ehtqk"]
+render_priority = 2
+shader = ExtResource("1_guwsu")
+shader_parameter/ColorParameter = Color(3, 1, 0.1, 1)
+shader_parameter/Velocidad = Vector2(0.3, 3.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dk3g3"]
+render_priority = 0
+shader = ExtResource("3_fpcsb")
+shader_parameter/ColorParameter = Color(2, 0.557, 0, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Cono" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ehtqk")
+mesh = ExtResource("2_6xh12")
+
+[node name="Proyectil" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0425977, 0, 0)
+radius = 0.2
+material = SubResource("ShaderMaterial_dk3g3")

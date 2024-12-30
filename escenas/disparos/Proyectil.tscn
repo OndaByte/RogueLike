@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c13esh2v6jjpe"]
+[gd_scene load_steps=6 format=3 uid="uid://c13esh2v6jjpe"]
 
 [ext_resource type="Script" path="res://src/disparos/Proyectil.gd" id="1_8k3q0"]
+[ext_resource type="PackedScene" uid="uid://d0oy7g5ifw50x" path="res://escenas/disparos/Fireball.tscn" id="2_mcgu0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_17sk7"]
 radius = 0.3
@@ -13,6 +14,7 @@ height = 0.4
 
 [node name="Proyectil" type="Node3D"]
 script = ExtResource("1_8k3q0")
+magnitud = 200.0
 
 [node name="Proyectil" type="RigidBody3D" parent="."]
 collision_layer = 0
@@ -29,6 +31,11 @@ collision_layer = 0
 shape = SubResource("SphereShape3D_pw3ox")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Proyectil"]
+visible = false
+layers = 0
 mesh = SubResource("SphereMesh_g6ukk")
+
+[node name="Node3D" parent="Proyectil" instance=ExtResource("2_mcgu0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [connection signal="body_entered" from="Proyectil/Area3D" to="." method="_on_area_3d_body_entered"]

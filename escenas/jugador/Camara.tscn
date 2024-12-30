@@ -17,3 +17,6 @@ target_position = Vector3(0, 0, -1000)
 
 [node name="Clip" type="RayCast3D" parent="Horizontal/Vertical"]
 target_position = Vector3(0, 0, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.1

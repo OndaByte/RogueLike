@@ -6,7 +6,7 @@ class_name EfectoDivision
 @export var daño_hijos: float = 1
 
 func efecto_golpe(body):
-	if disparo == null:
+	if disparo == null || !body.is_in_group("Enemigos"):
 		return
 	var aux_dispersion = 2*PI * randf()
 	var angulo

@@ -14,13 +14,13 @@ albedo_color = Color(0.828769, 0.478259, 0.0853624, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_h2mx3"]
 material = SubResource("StandardMaterial3D_gxid1")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v14xn"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0r00f"]
 albedo_color = Color(0, 0.563072, 0.309754, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_evilw"]
-material = SubResource("StandardMaterial3D_v14xn")
+material = SubResource("StandardMaterial3D_0r00f")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mrqg2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7g74"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_875v1"]
 albedo_color = Color(0.679157, 0.287477, 0.666738, 1)
@@ -60,7 +60,7 @@ mesh = SubResource("BoxMesh_evilw")
 [node name="StaticBody3D" type="StaticBody3D" parent="BaldozaCamino"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BaldozaCamino/StaticBody3D"]
-shape = SubResource("BoxShape3D_mrqg2")
+shape = SubResource("BoxShape3D_g7g74")
 
 [node name="BaldozaInicio" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.06529)
@@ -69,7 +69,7 @@ mesh = SubResource("BoxMesh_jq30d")
 [node name="StaticBody3D" type="StaticBody3D" parent="BaldozaInicio"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BaldozaInicio/StaticBody3D"]
-shape = SubResource("BoxShape3D_mrqg2")
+shape = SubResource("BoxShape3D_g7g74")
 
 [node name="BaldozaFin" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0836592, 1.43644)
@@ -78,4 +78,4 @@ mesh = SubResource("BoxMesh_6f5ht")
 [node name="StaticBody3D" type="StaticBody3D" parent="BaldozaFin"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BaldozaFin/StaticBody3D"]
-shape = SubResource("BoxShape3D_mrqg2")
+shape = SubResource("BoxShape3D_g7g74")

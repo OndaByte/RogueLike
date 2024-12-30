@@ -2,7 +2,7 @@ extends Node3D
 class_name Disparo
 
 @export var daño: int = 10
-@export var magnitud: float = 1000
+@export var magnitud: float = 500
 @export var efectos_disparo: Array[EfectoDisparo] = []
 
 func init():

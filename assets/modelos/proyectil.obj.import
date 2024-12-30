@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://yopk0tv6ixbb"
+path="res://.godot/imported/proyectil.obj-24a0102fd18d54ab43874964ce9e0182.mesh"
+
+[deps]
+
+files=["res://.godot/imported/proyectil.obj-24a0102fd18d54ab43874964ce9e0182.mesh"]
+
+source_file="res://assets/modelos/proyectil.obj"
+dest_files=["res://.godot/imported/proyectil.obj-24a0102fd18d54ab43874964ce9e0182.mesh", "res://.godot/imported/proyectil.obj-24a0102fd18d54ab43874964ce9e0182.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

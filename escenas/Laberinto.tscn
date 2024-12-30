@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmi7b0swrfdad"]
+[gd_scene load_steps=6 format=3 uid="uid://cmi7b0swrfdad"]
 
 [ext_resource type="Script" path="res://escenas/spawner.gd" id="3_f1aym"]
+[ext_resource type="PackedScene" uid="uid://dkb0ffdkccej8" path="res://escenas/jugador/Camara.tscn" id="3_t03gj"]
 [ext_resource type="PackedScene" uid="uid://cixbelui2hypb" path="res://escenas/generadores/AgenteEnjambre.tscn" id="8_7kibl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_s3kvy"]
-radius = 3.0
+radius = 6.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iv36d"]
 transparency = 1
@@ -13,24 +14,28 @@ albedo_color = Color(1, 1, 1, 0.2)
 [node name="escena" type="Node3D"]
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, -0.2, -4.7)
 
-[node name="Area3D" type="Area3D" parent="Node3D"]
+[node name="Area3D" type="Area3D" parent="Node3D" groups=["Obstaculo"]]
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("3_f1aym")
 node_to_spawn = ExtResource("8_7kibl")
+cant = 2000
+vel_spawn = 0.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
 shape = SubResource("SphereShape3D_s3kvy")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Node3D"]
-radius = 3.0
+radius = 6.0
 radial_segments = 32
 rings = 12
 material = SubResource("StandardMaterial3D_iv36d")
 
+[node name="Camara" parent="Node3D" instance=ExtResource("3_t03gj")]
+distancia_maxima = 10.0
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
 
 [connection signal="body_exited" from="Node3D/Area3D" to="Node3D/Area3D" method="_on_body_exited"]

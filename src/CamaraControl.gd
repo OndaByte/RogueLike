@@ -10,6 +10,7 @@ class_name CamaraControl
 @export var distancia_minima: float = 1.5
 @export var distancia_maxima: float = 4
 @export var distancia_inicial: float = 3
+@export var clipear_camara: bool = true;
 
 @onready var clip = $Horizontal/Vertical/Clip
 @onready var mira = $Horizontal/Vertical/Camera3D/Mira
@@ -43,7 +44,7 @@ func _physics_process(delta):
 	horizontal.rotation_degrees.y = lerp(horizontal.rotation_degrees.y,_rot_h,aceleracion_rotacion*delta)
 	vertical.rotation_degrees.x = lerp(vertical.rotation_degrees.x,_rot_v,aceleracion_rotacion*delta)
 	
-	if clip.is_colliding():
+	if (clipear_camara && clip.is_colliding()):
 		var distancia_clip = clip.global_transform.origin.distance_to(clip.get_collision_point())
 		camara.transform.origin.z = lerp(camara.transform.origin.z,distancia_clip,velocidad_zoom*delta)
 	else:

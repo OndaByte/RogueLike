@@ -1,0 +1,26 @@
+* Estructura de niveles y mapa del juego
+La estructura del juego es simple, se contara con un conjunto finito de niveles pre-fabricados, una funcion generadora de niveles (posiblemente agentes euristicos? - quiero tuneles onda hormigas!!!!) y una estructura de "mapa global" del juego (quiero que sea 3d).
+
+El jugador empezaria la partida en un nivel prefabricado "inicial" para luego poder viajar a otro nivel pre fabricado o vagar por el mapa, durante el viaje basado en algun criterio se podria generar un nivel con dicha funcion y se obtendria un nivel "generado", con enemigos, secretos, etc.
+
+* TODO Niveles Pre-fabricados
+Estos deberian ser niveles creados a mano para aspectos de campaña, bases, comerciantes, etc.
+
+Se deberia poder viajar entre ellos a voluntad???
+
+* TODO Niveles Generados
+Estos niveles deberian ser "dungeons" con enemigos (o no), secretos (o no), etc. Establecer algoritmo generador del nivel, habia pensado en algo como tuneles de las hormigas.
+
+* TODO Mapa Global
+El mapa global deberia ser una representacion 3d del "universo" del juego, deberia permitir ver los "puntos clave" (pre generados) del mapa a lo fallout2, mientras se viaja hay una prob de que se pase a un nivel generado. Deberia permitir la exploracion, viajar sin rumbo fijo como tal sin ir a ningun punto clave.
+
+
+
+* Implementacion planteada
+Una vez que se ha definido como sera el mundo, se eligiran puntos 3d (o conjuntos de puntos) que represente la ubicacion 3d de un nivel pre fabricado, el jugador deberia poder moverse "en el mapa" (como fallout 2, atom rpg) y basado en algun criterio podria tener un evento donde se le genera un nuevo nivel.
+
+Se carga dicho nivel y se sigue a lo que es el gameplay de accion del juego.
+
+Dichos niveles tendran areas para "salir" y se vuelve al mapa 3d, cuando se esta cerca de un "punto clave" el jugador puede decidir cargar dichos mapas.
+
+_Lo realmente importante es como generar el "dungeon"_

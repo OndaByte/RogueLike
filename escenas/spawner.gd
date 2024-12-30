@@ -2,8 +2,10 @@ extends Area3D
 
 @export var node_to_spawn: PackedScene
 @export var cant: int = 200
-var radio = 3
-var tiempo: float = 0.1
+@export var vel_spawn: float = 0.05
+
+var radio = 6
+var tiempo: float = vel_spawn
 var rng = RandomNumberGenerator.new()
 
 func _process(delta: float) -> void:
@@ -17,11 +19,11 @@ func _process(delta: float) -> void:
 	get_tree().current_scene.add_child(instance)
 	instance.look_at(Vector3(rng.randf_range(-100,100),rng.randf_range(-100,100),rng.randf_range(-100,100)), Vector3.UP)
 	cant -= 1
-	tiempo = 0.1
+	tiempo = vel_spawn
 
-func _on_body_exited(body: Node) -> void:
-	if body.is_in_group("Enjambre"):  # Asegúrate de que los nodos tengan el grupo adecuado
-		reposition_body(body)
+#func _on_body_exited(body: Node) -> void:
+	#if body.is_in_group("Enjambre"):  # Asegúrate de que los nodos tengan el grupo adecuado
+		#reposition_body(body)
 
 func reposition_body(body: Node) -> void:
 	var current_position = body.global_position
